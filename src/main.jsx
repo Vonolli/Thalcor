@@ -68,34 +68,28 @@ const dossiers = [
   }
 ];
 
-const artifactLog = [
-  'Omega command interface',
-  'Symbiotic robotics field notes',
-  'Elthriven world snapshots',
-  "O'LIXIR formulation path",
-  'Petrichor artifact studies',
-  'Nightborne signal archive'
-];
-
 function App() {
   return (
     <div className="site-shell">
       <div className="ambient-grid" aria-hidden="true" />
       <div className="noise-layer" aria-hidden="true" />
+      <div className="scanline-layer" aria-hidden="true" />
       <div className="signal-sweep" aria-hidden="true" />
 
       <header className="masthead panel">
         <span>THALCOR / PUBLIC-FACING NODE</span>
         <span>VENTURE INTELLIGENCE TERMINAL</span>
+        <span>SECURE DOSSIER VIEW</span>
       </header>
 
       <main className="layout">
-        <section className="access-node panel" id="top">
-          <div className="boot-feed">
+        <section className="hero access-node panel" id="top">
+          <aside className="boot-feed">
+            <p className="eyebrow">STATUS METADATA</p>
             {nodeState.map((item) => (
               <p key={item.label}><label>{item.label}</label><strong>{item.value}</strong></p>
             ))}
-          </div>
+          </aside>
 
           <div className="node-copy">
             <p className="eyebrow">ACCESS GATE / OPEN CHANNEL</p>
@@ -112,7 +106,7 @@ function App() {
           </div>
 
           <aside className="node-map" aria-label="Node map">
-            <p>GRID / NORTHWEST COMPOUND</p>
+            <p className="eyebrow">TACTICAL GRID</p>
             <div className="map-graphic">
               <span /><span /><span /><span /><span />
             </div>
@@ -123,8 +117,8 @@ function App() {
           <p className="eyebrow">THALCOR THESIS</p>
           <h2>One engine, many fronts.</h2>
           <p>
-            Thalcor is the system binding AI, robotics, games, CPG, design, music, media, and future infrastructure into one compounding machine.
-            The projects are not random. They are coordinated experiments in leverage.
+            Thalcor binds AI, robotics, games, CPG, design, music, media, and future infrastructure into one compounding machine.
+            The projects are coordinated experiments in leverage.
           </p>
         </section>
 
@@ -157,10 +151,10 @@ function App() {
           <p className="eyebrow">LIVE ARCHIVE / ARTIFACT LOG</p>
           <h2>Transmission queue for future releases.</h2>
           <div className="archive-list">
-            {artifactLog.map((entry, index) => (
-              <div key={entry}>
+            {dossiers.map((entry, index) => (
+              <div key={entry.codename}>
                 <span>ARCHIVE.{String(index + 1).padStart(2, '0')}</span>
-                <p>{entry}</p>
+                <p>{entry.codename.toLowerCase()} / {entry.artifactType.toLowerCase()}</p>
                 <time>05.19.2026 / SIGNAL QUEUED</time>
               </div>
             ))}
