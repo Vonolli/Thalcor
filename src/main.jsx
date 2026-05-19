@@ -2,133 +2,204 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 
-const ventureMap = [
+const accessMeta = [
+  { label: 'ACCESS LEVEL', value: 'PUBLIC' },
+  { label: 'SIGNAL STATUS', value: 'ACTIVE' },
+  { label: 'NODE', value: 'THALCOR.CA' },
+  { label: 'BUILD MODE', value: 'QUIET' },
+  { label: 'RELEASE TYPE', value: 'ARTIFACT DROP' },
+  { label: 'SYSTEM STATE', value: 'COMPOUNDING' }
+];
+
+const dossiers = [
   {
-    name: 'Omega',
+    codename: 'OMEGA',
+    sector: 'Artificial Intelligence',
+    status: 'Active Build',
+    phase: 'Command Layer',
+    signal: 'High',
+    artifactType: 'System Core',
     description:
-      'Personal AI command layer for memory, tools, code, learning, and automation.'
+      'A personal AI command layer with memory, tools, learning systems, code execution, and automation.'
   },
   {
-    name: 'Symbiotic Robotics',
+    codename: 'SYMBIOTIC ROBOTICS',
+    sector: 'Robotics / Ecology',
+    status: 'Field Concept',
+    phase: 'Stewardship Ops',
+    signal: 'Rising',
+    artifactType: 'Field Platform',
     description:
-      'Robots, drones, and sensor systems for land stewardship, reforestation, wildfire recovery, and ecological monitoring.'
+      'Human-guided robots, drones, and sensors for reforestation, wildfire recovery, land stewardship, invasive species control, and ecological monitoring.'
   },
   {
-    name: 'Elthriven',
-    description: 'Experimental living simulation and game world.'
-  },
-  {
-    name: "O’LIXIR",
-    description: 'Clean functional energy drink concept.'
-  },
-  {
-    name: 'Petrichor',
+    codename: 'ELTHRIVEN',
+    sector: 'Simulation / Games',
+    status: 'Prototype',
+    phase: 'World Engine',
+    signal: 'Persistent',
+    artifactType: 'Simulation Stack',
     description:
-      'Design house for clothing, jewelry, and objects with gothic nature and armoury details.'
+      'A living sea-island world engine blending games, agents, procedural systems, and high-resolution ASCII rendering.'
   },
   {
-    name: 'Nightborne',
+    codename: "O’LIXIR",
+    sector: 'Functional Beverage',
+    status: 'Formulation Path',
+    phase: 'Flavor + Formula',
+    signal: 'Calibrating',
+    artifactType: 'Consumer Product',
     description:
-      'Music label and home of corvus!, broadcasting a dark creative signal.'
+      'A clean energy drink concept built around sustained energy, strong taste, zero sugar, low calories, and natural functional ingredients.'
+  },
+  {
+    codename: 'PETRICHOR',
+    sector: 'Design / Objects',
+    status: 'Artifact Studies',
+    phase: 'Physical R&D',
+    signal: 'Stable',
+    artifactType: 'Design House',
+    description:
+      'A design house for clothing, jewelry, gothic nature, armoury details, and physical product experiments.'
+  },
+  {
+    codename: 'NIGHTBORNE',
+    sector: 'Music / Media',
+    status: 'Signal Building',
+    phase: 'Myth Engine',
+    signal: 'Amplifying',
+    artifactType: 'Creative Label',
+    description:
+      'The creative label behind corvus!, built around music, visuals, voice, myth, and dark performance identity.'
   }
 ];
 
 const doctrine = [
   'Build quietly. Release artifacts.',
-  'Turn strange ideas into testable systems.',
+  'Prototype before permission.',
   'Use AI as leverage, not decoration.',
-  'Prefer infrastructure over hype.',
-  'Compound skill, distribution, capital, and code.'
+  'Prefer systems over hype.',
+  'Turn taste into infrastructure.',
+  'Compound skill, capital, code, and distribution.',
+  'Make impossible ideas testable.'
 ];
 
 const drops = [
   'Omega command interface',
   'Ecological robotics field notes',
-  'O’LIXIR formulation path',
   'Elthriven world snapshots',
-  'Petrichor product studies'
+  'O’LIXIR formulation path',
+  'Petrichor product studies',
+  'Nightborne signal archive'
 ];
-
-function SectionTitle({ eyebrow, title, subtitle }) {
-  return (
-    <header className="section-head">
-      <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
-      {subtitle && <p className="subtitle">{subtitle}</p>}
-    </header>
-  );
-}
 
 function App() {
   return (
     <div className="site-shell">
+      <div className="ambient-grid" aria-hidden="true" />
+      <div className="scanline" aria-hidden="true" />
+      <header className="top-node">
+        <span>THALCOR / ACCESS NODE</span>
+        <span>VENTURE STUDIO / SYSTEMS WORKSHOP</span>
+      </header>
+
       <main>
-        <section className="hero">
-          <p className="eyebrow">THALCOR / PRIVATE LAB</p>
-          <h1>Building strange machines for the next world.</h1>
-          <p className="lead">
-            Thalcor is an independent venture studio, private idea lab, and systems workshop. We build quietly, release artifacts, and compound leverage.
-          </p>
-          <div className="hero-actions">
-            <a href="#venture-map" className="btn btn-primary">Explore the map</a>
-            <a href="#contact" className="btn btn-ghost">Send a signal</a>
+        <section className="access-hero" id="top">
+          <div className="hero-left">
+            <p className="small-label">CLASSIFIED ENTRY / PUBLIC MIRROR</p>
+            <h1>Building strange machines for the next world.</h1>
+            <p className="hero-copy">
+              Thalcor is a private venture studio and systems workshop building AI command layers, ecological robotics, game worlds, consumer products, design artifacts, and creative infrastructure.
+            </p>
+            <p className="microcopy">
+              Build quietly. Release artifacts. Compound leverage. <br />
+              Not a startup. A forge for impossible ideas.
+            </p>
+            <div className="hero-actions">
+              <a href="#dossiers" className="btn btn-solid">Enter venture dossiers</a>
+              <a href="#signal" className="btn btn-outline">Send a signal</a>
+            </div>
           </div>
-          <aside className="status-panel" aria-label="Build status panel">
-            <p>Active build phase</p>
-            <p>Prototype-first</p>
-            <p>Quiet but inevitable</p>
-            <p>Build → Prove → Compound</p>
+
+          <aside className="hero-panel" aria-label="System status">
+            {accessMeta.map((item) => (
+              <p key={item.label}>
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+              </p>
+            ))}
           </aside>
         </section>
 
-        <section>
-          <SectionTitle
-            eyebrow="MANIFESTO"
-            title="Artifacts instead of announcements."
-            subtitle="Thalcor is not built to look like every startup. It is a command layer for ideas: experiments become artifacts, artifacts become systems, systems become leverage."
-          />
+        <section className="thesis split-panel">
+          <div>
+            <p className="small-label">THE THESIS</p>
+            <h2>A command layer for ideas.</h2>
+          </div>
+          <p>
+            Thalcor turns scattered projects into one compounding engine of AI, design, code, media, products, and capital. Experiments become artifacts. Artifacts become systems. Systems become leverage.
+          </p>
         </section>
 
-        <section id="venture-map">
-          <SectionTitle
-            eyebrow="VENTURE MAP"
-            title="Current initiatives"
-          />
-          <div className="card-grid">
-            {ventureMap.map((item) => (
-              <article className="glass-card" key={item.name}>
-                <h3>{item.name}</h3>
+        <section id="dossiers">
+          <p className="small-label">VENTURE DOSSIERS</p>
+          <h2>Classified builds in active circulation.</h2>
+          <div className="dossier-grid">
+            {dossiers.map((item, index) => (
+              <article className="dossier" key={item.codename}>
+                <div className="dossier-top">
+                  <span>ARTIFACT #{String(index + 1).padStart(3, '0')}</span>
+                  <span>{item.status}</span>
+                </div>
+                <h3>{item.codename}</h3>
                 <p>{item.description}</p>
+                <ul>
+                  <li><label>SECTOR</label><span>{item.sector}</span></li>
+                  <li><label>PHASE</label><span>{item.phase}</span></li>
+                  <li><label>SIGNAL</label><span>{item.signal}</span></li>
+                  <li><label>TYPE</label><span>{item.artifactType}</span></li>
+                </ul>
               </article>
             ))}
           </div>
         </section>
 
-        <section>
-          <SectionTitle eyebrow="OPERATING DOCTRINE" title="Build → Prove → Compound" />
-          <ul className="doctrine-list">
-            {doctrine.map((point) => <li key={point}>{point}</li>)}
-          </ul>
-        </section>
-
-        <section>
-          <SectionTitle
-            eyebrow="DROPS"
-            title="Public proof-of-work"
-            subtitle="Drops are public releases: prototypes, essays, renders, research notes, demos, field concepts, and proof-of-work."
-          />
-          <div className="drops-row">
-            {drops.map((drop) => <span key={drop}>{drop}</span>)}
+        <section className="venture-map split-panel">
+          <div>
+            <p className="small-label">VENTURE MAP</p>
+            <h2>System graph / cross-domain engine.</h2>
+          </div>
+          <div className="map-lines" aria-label="Venture map visualization">
+            {dossiers.map((item) => <span key={item.codename}>{item.codename}</span>)}
           </div>
         </section>
 
-        <section id="contact" className="contact">
-          <SectionTitle
-            eyebrow="CONTACT"
-            title="Send a signal"
-            subtitle="For collaborators, builders, investors, operators, designers, researchers, and people who want to help build impossible things."
-          />
-          <a className="btn btn-primary" href="mailto:hello@thalcor.ca">hello@thalcor.ca</a>
+        <section>
+          <p className="small-label">OPERATING DOCTRINE</p>
+          <h2>Internal command doctrine.</h2>
+          <ol className="doctrine-list">
+            {doctrine.map((point) => <li key={point}>{point}</li>)}
+          </ol>
+        </section>
+
+        <section>
+          <p className="small-label">ARTIFACT DROPS</p>
+          <h2>Release log / classified archive.</h2>
+          <div className="drop-log">
+            {drops.map((item, index) => (
+              <div key={item}>
+                <span>LOG {String(index + 1).padStart(2, '0')}</span>
+                <p>{item}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="signal" className="signal-box">
+          <p className="small-label">SIGNAL / CONTACT</p>
+          <h2>Send a signal.</h2>
+          <p>For collaborators, operators, and builders aligned with long-horizon systems work.</p>
+          <a href="mailto:hello@thalcor.ca">hello@thalcor.ca</a>
         </section>
       </main>
     </div>
