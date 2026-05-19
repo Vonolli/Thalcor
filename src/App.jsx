@@ -1,172 +1,142 @@
-const nodeState = [
-  { label: 'THALCOR ACCESS NODE', value: 'PUBLIC CLEARANCE' },
-  { label: 'SIGNAL ACTIVE', value: 'TRUE' },
-  { label: 'NODE', value: 'THALCOR.CA' },
-  { label: 'BUILD MODE', value: 'QUIET' },
-  { label: 'COMPOUND ENGINE', value: 'ONLINE' },
-  { label: 'TIMESTAMP', value: 'UTC / LIVE' }
-];
-
 const dossiers = [
   {
     codename: 'OMEGA',
-    sector: 'AI Systems',
-    status: 'Active Build',
-    phase: 'Command Layer',
-    objective: 'Deploy a persistent command intelligence for operators, code, memory, and execution.',
-    artifactType: 'Command Interface',
-    description: 'A private intelligence shell where models, tools, and workflows become one operating surface.'
+    sector: 'AI COMMAND LAYERS',
+    status: 'ACTIVE',
+    phase: 'OMEGA STACK',
+    objective: 'Unify operators, models, memory, and execution into one command surface.',
+    description: 'A private control architecture where experiments are orchestrated as a single compounding system.'
   },
   {
     codename: 'SYMBIOTIC ROBOTICS',
-    sector: 'Robotics + Ecology',
-    status: 'Field Concept',
-    phase: 'Stewardship Ops',
-    objective: 'Merge human direction, sensors, drones, and autonomous systems for living terrain repair.',
-    artifactType: 'Field Notes / Platform',
-    description: 'Robotic restoration protocols for reforestation, wildfire recovery, and ecological observation.'
+    sector: 'ECOLOGICAL ROBOTICS',
+    status: 'FIELD BUILD',
+    phase: 'AUTONOMY TRIALS',
+    objective: 'Deploy adaptive robotics for restoration, terrain intelligence, and stewardship operations.',
+    description: 'Machine ecologies designed to collaborate with human crews in living landscapes.'
   },
   {
     codename: 'ELTHRIVEN',
-    sector: 'Simulation + Games',
-    status: 'Prototype',
-    phase: 'World Engine',
-    objective: 'Build a living simulated world where story, systems, and machine agents evolve in real time.',
-    artifactType: 'World Snapshot',
-    description: 'A sea-island simulation stack shaped by procedural design, AI entities, and atmosphere-first rendering.'
+    sector: 'GAME WORLDS',
+    status: 'PROTOTYPE',
+    phase: 'WORLD ENGINE',
+    objective: 'Construct a persistent world simulation where story, systems, and agents evolve continuously.',
+    description: 'A mythic simulation layer blending procedural generation, dramatic narrative, and AI entities.'
   },
   {
     codename: "O'LIXIR",
-    sector: 'CPG + Performance',
-    status: 'Formulation Path',
-    phase: 'Flavor / Formula',
-    objective: 'Engineer a clean performance beverage with strong taste and sustained energy characteristics.',
-    artifactType: 'Formula Record',
-    description: 'A zero-sugar product exploration with strong identity, precise chemistry, and taste-forward design.'
+    sector: 'CONSUMER PRODUCTS',
+    status: 'FORMULATION',
+    phase: 'CHEMISTRY / FLAVOR',
+    objective: 'Engineer a zero-sugar performance beverage with precise chemistry and premium identity.',
+    description: 'A product laboratory for taste-forward energy systems and disciplined brand signal.'
   },
   {
     codename: 'PETRICHOR',
-    sector: 'Design + Objects',
-    status: 'Artifact Studies',
-    phase: 'Physical R&D',
-    objective: 'Translate gothic nature, armoury detail, and industrial luxury into wearable and tangible objects.',
-    artifactType: 'Material Study',
-    description: 'A design archive investigating clothing, jewelry, and physical product language under one thesis.'
+    sector: 'DESIGN ARTIFACTS',
+    status: 'MATERIAL STUDY',
+    phase: 'OBJECT LANGUAGE',
+    objective: 'Translate gothic naturalism and industrial luxury into physical objects and wearables.',
+    description: 'A classified archive of form, material, and ritual-driven design systems.'
   },
   {
     codename: 'NIGHTBORNE',
-    sector: 'Music + Media',
-    status: 'Signal Building',
-    phase: 'Myth Engine',
-    objective: 'Construct a multimedia myth stack where sound, image, voice, and performance scale together.',
-    artifactType: 'Signal Archive',
-    description: 'The media vessel behind corvus!, built as a high-identity signal architecture.'
+    sector: 'CREATIVE INFRASTRUCTURE',
+    status: 'SIGNAL BUILD',
+    phase: 'MEDIA ENGINE',
+    objective: 'Scale a unified audiovisual myth stack across music, visual worlds, and live expression.',
+    description: 'An identity machine where sound, symbol, and narrative compound into cultural leverage.'
   }
+];
+
+const artifactLog = [
+  { id: 'ART-001', item: 'OMEGA CONTROL SURFACE', state: 'SIGNAL LOCKED' },
+  { id: 'ART-002', item: 'SYMBIOTIC FIELD KIT', state: 'CALIBRATING' },
+  { id: 'ART-003', item: 'ELTHRIVEN WORLD SNAPSHOT', state: 'ARCHIVED' }
 ];
 
 export default function App() {
   return (
-    <div className="site-shell">
-      <div className="ambient-grid" aria-hidden="true" />
-      <div className="noise-layer" aria-hidden="true" />
-      <div className="scanline-layer" aria-hidden="true" />
-      <div className="signal-sweep" aria-hidden="true" />
+    <div className="thalcor-system">
+      <div className="system-texture" aria-hidden="true" />
+      <div className="system-grid" aria-hidden="true" />
+      <div className="system-scanline" aria-hidden="true" />
+      <div className="system-sweep" aria-hidden="true" />
 
-      <header className="masthead panel">
-        <span>THALCOR / PUBLIC-FACING NODE</span>
-        <span>VENTURE INTELLIGENCE TERMINAL</span>
-        <span>SECURE DOSSIER VIEW</span>
+      <header className="top-bar">
+        <span>THALCOR ACCESS NODE</span>
+        <span>PUBLIC CLEARANCE</span>
+        <span>SIGNAL ACTIVE</span>
+        <span>NODE: THALCOR.CA</span>
       </header>
 
-      <main className="layout">
-        <section className="hero access-node panel" id="top">
-          <aside className="boot-feed">
-            <p className="eyebrow">STATUS METADATA</p>
-            {nodeState.map((item) => (
-              <p key={item.label}><label>{item.label}</label><strong>{item.value}</strong></p>
-            ))}
-          </aside>
-
-          <div className="node-copy">
-            <p className="eyebrow">ACCESS GATE / OPEN CHANNEL</p>
-            <h1>Not a startup. A forge for impossible ideas.</h1>
-            <p>
-              A venture studio for strange machines, living systems, and compounding intelligence.
-              Built quietly until the signal is impossible to ignore.
+      <main className="main-frame">
+        <section className="hero-grid">
+          <div className="hero-left">
+            <p className="meta">BLACKSITE / PUBLIC TERMINAL</p>
+            <h1>Building strange machines for the next world.</h1>
+            <p className="hero-line">Build quietly. Release artifacts. Compound leverage.</p>
+            <p className="core-description">
+              Thalcor is a private venture studio and systems workshop building AI command layers, ecological robotics, game worlds, consumer products, design artifacts, and creative infrastructure.
             </p>
-            <p className="terminal-line">Experiments become artifacts. Artifacts become systems. Systems become leverage.</p>
-            <div className="actions">
-              <a href="#dossiers" className="btn solid">Enter dossiers</a>
-              <a href="#signal" className="btn ghost">Open signal channel</a>
-            </div>
+            <p className="statement">Not a startup. A forge for impossible ideas.</p>
+            <p className="statement">Experiments become artifacts. Artifacts become systems. Systems become leverage.</p>
+            <p className="statement">Built quietly until the signal is impossible to ignore.</p>
           </div>
 
-          <aside className="node-map" aria-label="Node map">
-            <p className="eyebrow">TACTICAL GRID</p>
-            <div className="map-graphic">
-              <span /><span /><span /><span /><span />
-            </div>
+          <aside className="status-panel">
+            <p className="meta">TERMINAL STATUS / LIVE</p>
+            <ul>
+              <li><label>SYSTEM STATE</label><strong>COMPOUNDING</strong></li>
+              <li><label>BUILD MODE</label><strong>QUIET</strong></li>
+              <li><label>RELEASE TYPE</label><strong>ARTIFACT DROP</strong></li>
+              <li><label>ACTIVE NODE</label><strong>OMEGA</strong></li>
+            </ul>
           </aside>
         </section>
 
-        <section className="thesis panel">
-          <p className="eyebrow">THALCOR THESIS</p>
-          <h2>One engine, many fronts.</h2>
-          <p>
-            Thalcor binds AI, robotics, games, CPG, design, music, media, and future infrastructure into one compounding machine.
-            The projects are coordinated experiments in leverage.
-          </p>
+        <section className="dossier-section">
+          <p className="meta">VENTURE DOSSIERS</p>
+          {dossiers.map((item, index) => (
+            <article className="dossier-file" key={item.codename}>
+              <div className="file-head">
+                <span>FILE-{String(index + 1).padStart(3, '0')}</span>
+                <span>{item.status}</span>
+              </div>
+              <h2>{item.codename}</h2>
+              <dl>
+                <div><dt>SECTOR</dt><dd>{item.sector}</dd></div>
+                <div><dt>STATUS</dt><dd>{item.status}</dd></div>
+                <div><dt>PHASE</dt><dd>{item.phase}</dd></div>
+                <div><dt>OBJECTIVE</dt><dd>{item.objective}</dd></div>
+              </dl>
+              <p>{item.description}</p>
+            </article>
+          ))}
         </section>
 
-        <section id="dossiers" className="dossier-zone">
-          <div className="zone-head panel">
-            <p className="eyebrow">CLASSIFIED DOSSIERS</p>
-            <h2>Founder venture map / artifact intelligence records.</h2>
-          </div>
-          <div className="dossier-grid">
-            {dossiers.map((item, index) => (
-              <article className="dossier panel" key={item.codename}>
-                <div className="dossier-head">
-                  <span>FILE {String(index + 1).padStart(3, '0')}</span>
-                  <span>{item.status}</span>
-                </div>
-                <h3>{item.codename}</h3>
-                <p>{item.description}</p>
-                <ul>
-                  <li><label>SECTOR</label><span>{item.sector}</span></li>
-                  <li><label>PHASE</label><span>{item.phase}</span></li>
-                  <li><label>OBJECTIVE</label><span>{item.objective}</span></li>
-                  <li><label>ARTIFACT</label><span>{item.artifactType}</span></li>
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="archive panel">
-          <p className="eyebrow">LIVE ARCHIVE / ARTIFACT LOG</p>
-          <h2>Transmission queue for future releases.</h2>
-          <div className="archive-list">
-            {dossiers.map((entry, index) => (
-              <div key={entry.codename}>
-                <span>ARCHIVE.{String(index + 1).padStart(2, '0')}</span>
-                <p>{entry.codename.toLowerCase()} / {entry.artifactType.toLowerCase()}</p>
-                <time>05.19.2026 / SIGNAL QUEUED</time>
+        <section className="artifact-section">
+          <p className="meta">ARTIFACT LOG / RELEASE ARCHIVE</p>
+          <div className="artifact-table" role="table" aria-label="Artifact release archive">
+            {artifactLog.map((entry) => (
+              <div className="artifact-row" role="row" key={entry.id}>
+                <span>{entry.id}</span>
+                <span>{entry.item}</span>
+                <span>{entry.state}</span>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="signal" className="signal panel">
-          <p className="eyebrow">SEND A SIGNAL</p>
-          <h2>Open channel for serious collaborators.</h2>
-          <p>
-            For collaborators, builders, operators, investors, researchers, designers,
-            and people who want to help build impossible things.
-          </p>
+        <section className="contact-section">
+          <p className="meta">CHANNEL HANDSHAKE</p>
+          <h2>SEND A SIGNAL</h2>
+          <p>Open a direct channel for aligned operators, collaborators, and serious builders.</p>
           <a href="mailto:hello@thalcor.ca">hello@thalcor.ca</a>
         </section>
       </main>
+
+      <div className="build-badge">THALCOR VISUAL SYSTEM V1</div>
     </div>
   );
 }
