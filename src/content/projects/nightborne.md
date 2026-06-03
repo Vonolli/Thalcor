@@ -1,6 +1,5 @@
 ---
 title: Nightborne
-slug: nightborne
 tagline: A media engine where sound, symbol, and cinematic worlds compound into cultural leverage.
 status: Signal Build
 category: Media Systems

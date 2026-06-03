@@ -1,8 +1,9 @@
 ---
 interface Props { project: any; }
 const { project } = Astro.props;
+const projectSlug = project.id.replace(/\.md$/, '');
 ---
-<a class="project-card surface" href={`/projects/${project.data.slug}/`}>
+<a class="project-card surface" href={`/projects/${projectSlug}/`}>
   <div class="media">
     <img src={project.data.previewImage} alt={`${project.data.title} preview placeholder`} loading="lazy" />
   </div>

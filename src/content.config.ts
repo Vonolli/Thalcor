@@ -1,12 +1,11 @@
 import { defineCollection, z } from 'astro:content';
 
 // Add a new project by creating one Markdown file in `src/content/projects`.
-// The `slug` frontmatter controls the final URL: `/projects/{slug}/`.
+// The Markdown filename controls the final URL: `/projects/{filename}/`.
 const projects = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    slug: z.string(),
     tagline: z.string(),
     status: z.string(),
     category: z.string(),

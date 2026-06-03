@@ -6,7 +6,6 @@ Required frontmatter fields:
 
 ```yaml
 title: Example
-slug: example
 tagline: Short project line.
 status: Prototype
 category: Future Systems
@@ -17,4 +16,4 @@ externalUrl: ''
 order: 99
 ```
 
-The Markdown body below the frontmatter becomes the project detail page content at `/projects/{slug}/`.
+Name the file for the route you want, such as `example.md`. The Markdown body below the frontmatter becomes the project detail page content at `/projects/{filename}/`.

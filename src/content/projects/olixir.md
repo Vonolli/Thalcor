@@ -1,6 +1,5 @@
 ---
 title: O’LIXIR
-slug: olixir
 tagline: A premium zero-sugar performance beverage concept with disciplined chemistry and signal.
 status: Formulation
 category: Consumer Products

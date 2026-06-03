@@ -1,6 +1,5 @@
 ---
 title: Future Systems
-slug: future-systems
 tagline: Internal frameworks for robotics, ecological intelligence, simulation, and frontier operations.
 status: Prototype Map
 category: Future Systems

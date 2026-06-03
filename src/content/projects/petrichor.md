@@ -1,6 +1,5 @@
 ---
 title: Petrichor
-slug: petrichor
 tagline: Gothic naturalism, industrial luxury, and physical artifact language.
 status: Material Study
 category: Design Artifacts
