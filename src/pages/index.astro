@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import { processSteps, site } from '../data/site';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order);
+const featuredProjects = projects.filter((project) => project.data.featured).slice(0, 3);
+---
+<BaseLayout title={site.title} description={site.description}>
+  <Hero />
+
+  <Section eyebrow="Featured dossiers" title="Impossible ideas under active pressure." intro="Projects begin as private experiments, then become artifacts, systems, ventures, or strategic assets.">
+    <div class="grid grid-3">
+      {featuredProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </Section>
+
+  <Section eyebrow="Process" title="Imagine. Prototype. Validate. Compound.">
+    <div class="process-grid">
+      {processSteps.map((step, index) => (
+        <article class="surface process-card">
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <ContactCTA />
+</BaseLayout>
+<style>
+  .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .process-card { padding: 1.1rem; }
+  .process-card span { color: var(--color-accent); font-size: .72rem; letter-spacing: .18em; }
+  .process-card h3 { margin-top: 2rem; }
+  @media (max-width: 980px) { .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 620px) { .process-grid { grid-template-columns: 1fr; } }
+</style>

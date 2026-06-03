@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+---
+<BaseLayout title="404" description="The requested THALCOR file could not be found." canonical="/404/">
+  <section class="not-found container">
+    <p class="kicker">404 / Missing file</p>
+    <h1>Signal lost.</h1>
+    <p>The requested dossier does not exist, has moved, or remains below public clearance.</p>
+    <Button href="/projects/">Return to projects</Button>
+  </section>
+</BaseLayout>
+<style>
+  .not-found { min-height: 62vh; display: grid; align-content: center; gap: 1rem; padding: 4rem 0; }
+  h1 { font-size: clamp(4rem, 14vw, 9rem); }
+  p:not(.kicker) { max-width: 620px; font-size: 1.1rem; }
+</style>

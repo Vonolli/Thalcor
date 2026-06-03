@@ -1,0 +1,37 @@
+---
+import Button from './Button.astro';
+---
+<section class="hero container">
+  <div class="hero-copy">
+    <p class="kicker">Private venture studio / idea lab</p>
+    <h1>THALCOR</h1>
+    <p class="subheadline">A private venture studio for impossible ideas.</p>
+    <p class="supporting">We build, test, and compound frontier concepts across AI, design, media, hardware, and consumer products.</p>
+    <div class="actions">
+      <Button href="/projects/">View projects</Button>
+      <Button href="/contact/" variant="ghost">Open a channel</Button>
+    </div>
+  </div>
+  <aside class="surface telemetry" aria-label="Studio telemetry">
+    <p class="kicker">Access node</p>
+    <dl>
+      <div><dt>Build mode</dt><dd>Quiet</dd></div>
+      <div><dt>Release type</dt><dd>Artifacts</dd></div>
+      <div><dt>Active fields</dt><dd>AI / Media / Hardware / Consumer</dd></div>
+      <div><dt>Operating thesis</dt><dd>Compound leverage</dd></div>
+    </dl>
+  </aside>
+</section>
+<style>
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 1.5rem; align-items: end; min-height: calc(100svh - 74px); padding: 6rem 0 4rem; }
+  .hero-copy { max-width: 940px; }
+  .subheadline { margin: 1rem 0 0; color: var(--color-silver); font-size: clamp(1.45rem, 3vw, 2.55rem); line-height: 1.18; }
+  .supporting { max-width: 760px; color: #aebdcb; font-size: clamp(1rem, 1.6vw, 1.18rem); }
+  .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
+  .telemetry { padding: 1.1rem; }
+  dl { display: grid; gap: .8rem; margin: 0; }
+  dl div { border-top: 1px solid var(--color-line); padding-top: .75rem; }
+  dt { color: var(--color-dim); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; }
+  dd { margin: .25rem 0 0; color: var(--color-text); font-weight: 700; }
+  @media (max-width: 920px) { .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 4rem; } }
+</style>

@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => {
+  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+  return a.data.order - b.data.order;
+});
+const categories = [...new Set(projects.map((project) => project.data.category))];
+---
+<BaseLayout title="Projects" description="THALCOR project dossiers across AI, design, media, hardware, and consumer products." canonical="/projects/">
+  <Section eyebrow="Project archive" title="Classified lab files for active and emerging ventures." intro="Add a new project by dropping a Markdown file into `src/content/projects` with the required frontmatter fields.">
+    <div class="category-row" aria-label="Project categories">
+      {categories.map((category) => <span>{category}</span>)}
+    </div>
+    <div class="grid grid-3">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </Section>
+</BaseLayout>
+<style>
+  .category-row { display: flex; flex-wrap: wrap; gap: .55rem; margin: 0 0 1.3rem; }
+  .category-row span { border: 1px solid var(--color-line); border-radius: 999px; padding: .45rem .65rem; color: var(--color-steel); background: rgba(8, 13, 20, .58); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+</style>

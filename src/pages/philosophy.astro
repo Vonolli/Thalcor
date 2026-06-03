@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+---
+<BaseLayout title="Philosophy" description="The THALCOR studio thesis: ideas become experiments, experiments become proof, proof becomes leverage." canonical="/philosophy/">
+  <Section eyebrow="Studio thesis" title="Ideas become experiments. Experiments become proof. Proof becomes leverage.">
+    <div class="philosophy-grid">
+      <div class="prose">
+        <p>THALCOR exists for concepts that are too early, too strange, too cross-disciplinary, or too founder-led to fit cleanly inside a normal company shape on day one.</p>
+        <p>The studio treats each idea as a living experiment. An experiment must become visible: a prototype, a formulation, a design system, a media artifact, a workflow, a field test, or a world fragment.</p>
+        <p>Proof is not only funding or traffic. Proof can be repeated behavior, aesthetic conviction, technical compression, distribution signal, manufacturing clarity, or a sharper map of what not to build.</p>
+        <p>When proof appears, THALCOR compounds it into assets: brands, software, intellectual property, operational systems, partnerships, and ventures with their own gravity.</p>
+      </div>
+      <aside class="surface principle-card">
+        <p class="kicker">Operating principles</p>
+        <ul>
+          <li>Build quietly until the signal is undeniable.</li>
+          <li>Prefer artifacts over decks.</li>
+          <li>Protect taste as strategic infrastructure.</li>
+          <li>Compound every experiment into reusable leverage.</li>
+        </ul>
+      </aside>
+    </div>
+  </Section>
+  <ContactCTA />
+</BaseLayout>
+<style>
+  .philosophy-grid { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: start; }
+  .principle-card { padding: 1.2rem; }
+  li { margin-bottom: .9rem; color: var(--color-silver); line-height: 1.6; }
+  @media (max-width: 860px) { .philosophy-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,27 @@
+---
+interface Props { project: any; }
+const { project } = Astro.props;
+---
+<a class="project-card surface" href={`/projects/${project.data.slug}/`}>
+  <div class="media">
+    <img src={project.data.previewImage} alt={`${project.data.title} preview placeholder`} loading="lazy" />
+  </div>
+  <div class="content">
+    <div class="meta"><span>{project.data.category}</span><span>{project.data.status}</span></div>
+    <h3>{project.data.title}</h3>
+    <p>{project.data.tagline}</p>
+    <div class="foot"><span>{project.data.featured ? 'Featured file' : 'Archive file'}</span><span>#{String(project.data.order).padStart(2, '0')}</span></div>
+  </div>
+</a>
+<style>
+  .project-card { display: grid; min-height: 100%; color: inherit; text-decoration: none; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  .project-card:hover { transform: translateY(-6px); border-color: rgba(127,180,223,.58); box-shadow: 0 34px 90px rgba(0,0,0,.56), 0 0 42px rgba(127,180,223,.12); }
+  .media { aspect-ratio: 1.45; border-bottom: 1px solid var(--color-line); overflow: hidden; background: #070b11; }
+  img { width: 100%; height: 100%; object-fit: cover; opacity: .82; filter: saturate(.78) contrast(1.08); transition: transform .45s ease, opacity .3s ease; }
+  .project-card:hover img { transform: scale(1.04); opacity: 1; }
+  .content { display: grid; gap: .75rem; padding: 1rem; }
+  .meta, .foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--color-dim); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; }
+  h3 { letter-spacing: .14em; text-transform: uppercase; }
+  p { margin: 0; }
+  .foot { border-top: 1px solid var(--color-line); padding-top: .8rem; color: var(--color-steel); }
+</style>

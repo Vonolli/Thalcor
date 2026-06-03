@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="THALCOR mark">
+  <rect width="240" height="240" rx="34" fill="#06080d"/>
+  <circle cx="120" cy="120" r="84" fill="none" stroke="#263646" stroke-width="2"/>
+  <path d="M54 70h132M120 70v104M76 170h88" fill="none" stroke="#d6dde7" stroke-width="10" stroke-linecap="round"/>
+  <path d="M54 70h132" fill="none" stroke="#6ea6d7" stroke-width="3" stroke-linecap="round"/>
+</svg>
