@@ -6,6 +6,10 @@ category: AI Command Layers
 featured: true
 heroImage: /assets/images/omega-hero.svg
 previewImage: /assets/images/omega-preview.svg
+logoImage: ''
+heroVideo: ''
+videoPath: ''
+documentPath: ''
 externalUrl: ''
 order: 1
 ---

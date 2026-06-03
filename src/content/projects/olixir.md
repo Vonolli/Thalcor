@@ -6,6 +6,10 @@ category: Consumer Products
 featured: true
 heroImage: /assets/images/olixir-hero.svg
 previewImage: /assets/images/olixir-preview.svg
+logoImage: ''
+heroVideo: ''
+videoPath: ''
+documentPath: ''
 externalUrl: ''
 order: 3
 ---

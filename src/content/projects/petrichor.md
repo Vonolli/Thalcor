@@ -6,6 +6,10 @@ category: Design Artifacts
 featured: true
 heroImage: /assets/images/petrichor-hero.svg
 previewImage: /assets/images/petrichor-preview.svg
+logoImage: ''
+heroVideo: ''
+videoPath: ''
+documentPath: ''
 externalUrl: ''
 order: 2
 ---

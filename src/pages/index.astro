@@ -4,7 +4,7 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import { featuredProgramNames, allPrograms, programCategories } from '../data/programs';
-import { processSteps, site } from '../data/site';
+import { homepage, processSteps, site } from '../data/site';
 
 const featuredPrograms = featuredProgramNames
   .map((name) => allPrograms.find((program) => program.name === name))
@@ -13,13 +13,13 @@ const featuredPrograms = featuredProgramNames
 <BaseLayout title={site.title} description={site.description}>
   <Hero />
 
-  <Section eyebrow="Positioning" title="A focused but ambitious lab — not a pile of ideas." intro="Thalcor builds proof across seven connected program areas. Each concept has to become sharper, more testable, and easier for capital or talent to understand.">
+  <Section eyebrow={homepage.positioningEyebrow} title={homepage.positioningTitle} intro={homepage.positioningIntro}>
     <div class="category-strip" aria-label="Main categories">
       {programCategories.map((category) => <a href={`/programs/#${category.slug}`}>{category.title}</a>)}
     </div>
   </Section>
 
-  <Section eyebrow="Featured programs" title="Clear tracks for the strongest concepts." intro="These are not random side projects. They are organized venture tracks with named use cases, public copy, and proof paths.">
+  <Section eyebrow={homepage.featuredProgramsEyebrow} title={homepage.featuredProgramsTitle} intro={homepage.featuredProgramsIntro}>
     <div class="grid grid-3">
       {featuredPrograms.map((program) => program && (
         <article class="surface program-card">
@@ -32,7 +32,7 @@ const featuredPrograms = featuredProgramNames
     </div>
   </Section>
 
-  <Section eyebrow="Operating model" title="Ideas become proof. Proof becomes opportunity.">
+  <Section eyebrow={homepage.processEyebrow} title={homepage.processTitle}>
     <div class="process-grid">
       {processSteps.map((step, index) => (
         <article class="surface process-card">
