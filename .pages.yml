@@ -1,0 +1,255 @@
+# Pages CMS is the editor UI for this Astro site.
+# Source of truth stays in GitHub; Netlify rebuilds when Pages CMS commits changes.
+# Login/edit: https://app.pagescms.org -> sign in with GitHub -> choose this repo.
+
+media:
+  # Add images through the CMS media picker or by committing files here.
+  - name: images
+    label: Images
+    input: public/assets/images
+    output: /assets/images
+    categories: [image]
+    rename: safe
+  # Add uploaded project/studio videos here, then reference `/assets/videos/file.mp4`.
+  - name: videos
+    label: Videos
+    input: public/assets/videos
+    output: /assets/videos
+    categories: [video]
+    rename: safe
+  # Add THALCOR and venture logos here, then reference `/assets/logos/file.svg`.
+  - name: logos
+    label: Logos
+    input: public/assets/logos
+    output: /assets/logos
+    categories: [image]
+    rename: safe
+  # Add pitch decks, PDFs, and other downloadable project files here.
+  - name: documents
+    label: Documents
+    input: public/assets/documents
+    output: /assets/documents
+    categories: [document]
+    rename: safe
+
+content:
+  - name: projects
+    label: Project pages
+    type: collection
+    path: src/content/projects
+    format: yaml-frontmatter
+    exclude: ["_README.md"]
+    filename:
+      template: "{title}.md"
+      field: create
+    view:
+      primary: title
+      fields: [status, category, featured, order]
+      sort: order
+      order: asc
+    fields:
+      - name: title
+        label: Project title
+        type: string
+        required: true
+      - name: tagline
+        label: Short project description
+        type: text
+        required: true
+      - name: status
+        label: Status
+        type: string
+        required: true
+      - name: category
+        label: Category
+        type: string
+        required: true
+      - name: featured
+        label: Featured on project index
+        type: boolean
+      - name: heroImage
+        label: Hero image
+        type: image
+        required: true
+        options:
+          media: images
+      - name: previewImage
+        label: Project card image
+        type: image
+        required: true
+        options:
+          media: images
+      - name: logoImage
+        label: Optional project logo
+        type: image
+        options:
+          media: logos
+      - name: heroVideo
+        label: Optional hero video override
+        type: file
+        description: If set, the project detail hero uses this video instead of the hero image.
+        options:
+          media: videos
+      - name: videoPath
+        label: Optional supporting video file
+        type: file
+        options:
+          media: videos
+      - name: documentPath
+        label: Optional supporting document
+        type: file
+        options:
+          media: documents
+      - name: externalUrl
+        label: External URL
+        type: string
+        description: Leave blank if there is no public external link.
+      - name: order
+        label: Sort order
+        type: number
+        required: true
+      - name: body
+        label: Project page body
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: images
+
+  - name: site_settings
+    label: Site-wide editable copy
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: name
+        label: Site name
+        type: string
+        required: true
+      - name: title
+        label: Default SEO title
+        type: string
+        required: true
+      - name: description
+        label: Default SEO description
+        type: text
+        required: true
+      - name: url
+        label: Site URL
+        type: string
+        required: true
+      - name: ogImage
+        label: Default social image
+        type: image
+        options:
+          media: images
+      - name: email
+        label: Contact email
+        type: string
+        required: true
+      - name: tagline
+        label: Brand tagline
+        type: text
+      - name: brandLogo
+        label: Header logo
+        type: image
+        options:
+          media: logos
+      - name: homepage
+        label: Homepage copy
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: headline
+            type: string
+          - name: subheadline
+            type: text
+          - name: supporting
+            type: text
+          - name: primaryActionLabel
+            label: Primary button label
+            type: string
+          - name: primaryActionUrl
+            label: Primary button URL
+            type: string
+          - name: secondaryActionLabel
+            label: Secondary button label
+            type: string
+          - name: secondaryActionUrl
+            label: Secondary button URL
+            type: string
+          - name: positioningEyebrow
+            type: string
+          - name: positioningTitle
+            type: string
+          - name: positioningIntro
+            type: text
+          - name: featuredProgramsEyebrow
+            type: string
+          - name: featuredProgramsTitle
+            type: string
+          - name: featuredProgramsIntro
+            type: text
+          - name: processEyebrow
+            type: string
+          - name: processTitle
+            type: string
+          - name: telemetryEyebrow
+            type: string
+          - name: telemetry
+            label: Hero telemetry rows
+            type: object
+            list: true
+            fields:
+              - name: label
+                type: string
+              - name: value
+                type: string
+      - name: contactPage
+        label: Contact page copy
+        type: object
+        fields:
+          - name: title
+            type: string
+          - name: description
+            type: text
+          - name: eyebrow
+            type: string
+          - name: heading
+            type: string
+          - name: intro
+            type: text
+          - name: panelTitle
+            type: string
+          - name: panelText
+            type: text
+      - name: contactCta
+        label: Reusable contact CTA
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: heading
+            type: text
+          - name: text
+            type: text
+          - name: buttonLabel
+            type: string
+      - name: processSteps
+        label: Operating model steps
+        type: object
+        list: true
+        fields:
+          - name: title
+            type: string
+          - name: text
+            type: text
+
+settings:
+  commit:
+    templates:
+      create: "cms: create {name}"
+      update: "cms: update {name}"
+      delete: "cms: delete {name}"
+      upload: "cms: upload {path}"

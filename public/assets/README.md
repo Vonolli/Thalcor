@@ -1,10 +1,19 @@
-# THALCOR static assets
+# Public assets
 
-Place raw static files here when they are ready for production:
+Files in `public/assets` are served from `/assets/...` at runtime and can be managed by Pages CMS.
 
-- `images/` — project stills, page hero images, Open Graph images, and render exports.
-- `videos/` — compressed MP4/WebM files referenced by `MediaBlock.astro` or future video sections.
+- `images/` — project hero images, preview images, Open Graph images, page illustrations, and rich-text images.
+- `videos/` — compressed MP4/WebM files referenced by project `heroVideo` or `videoPath` fields.
 - `logos/` — THALCOR marks, partner marks, and venture-specific SVG/PNG logo files.
-- `documents/` — PDFs, decks, one-pagers, or other downloadable files.
+- `documents/` — pitch decks, PDFs, one-pagers, and downloadable files.
 
-Project image paths are currently placeholders. Replace the `heroImage` and `previewImage` frontmatter values in `src/content/projects/*.md` with new paths from this folder.
+## Adding assets
+
+Use Pages CMS media uploaders or commit files directly to the matching folder. Reference files with public paths, for example:
+
+- `/assets/images/omega-hero.svg`
+- `/assets/videos/demo.mp4`
+- `/assets/logos/venture-mark.svg`
+- `/assets/documents/one-pager.pdf`
+
+Do not move assets into `src`; these folders keep media editor-friendly and Netlify-ready.

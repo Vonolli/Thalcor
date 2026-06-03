@@ -1,0 +1,68 @@
+{
+  "name": "THALCOR",
+  "title": "THALCOR — Venture Studio for Experimental Companies",
+  "description": "A venture studio building proof across intelligence systems, future hardware, consumer products, interactive worlds, creative IP, and practical infrastructure.",
+  "url": "https://thalcor.ca",
+  "ogImage": "/assets/images/og-image.svg",
+  "email": "contact@thalcor.ca",
+  "tagline": "A venture studio for experimental companies, systems, products, and worlds.",
+  "brandLogo": "/assets/logos/thalcor-mark.svg",
+  "homepage": {
+    "eyebrow": "Focused venture studio / experimental lab",
+    "headline": "THALCOR",
+    "subheadline": "A venture studio for experimental companies, systems, products, and worlds.",
+    "supporting": "Thalcor turns ambitious concepts into proof — then turns proof into companies, products, worlds, and systems.",
+    "primaryActionLabel": "Explore programs",
+    "primaryActionUrl": "/programs/",
+    "secondaryActionLabel": "Join / invest",
+    "secondaryActionUrl": "/join-invest/",
+    "positioningEyebrow": "Positioning",
+    "positioningTitle": "A focused but ambitious lab — not a pile of ideas.",
+    "positioningIntro": "Thalcor builds proof across seven connected program areas. Each concept has to become sharper, more testable, and easier for capital or talent to understand.",
+    "featuredProgramsEyebrow": "Featured programs",
+    "featuredProgramsTitle": "Clear tracks for the strongest concepts.",
+    "featuredProgramsIntro": "These are not random side projects. They are organized venture tracks with named use cases, public copy, and proof paths.",
+    "processEyebrow": "Operating model",
+    "processTitle": "Ideas become proof. Proof becomes opportunity.",
+    "telemetryEyebrow": "Studio frame",
+    "telemetry": [
+      { "label": "Operating mode", "value": "Focused lab" },
+      { "label": "Output", "value": "Proof artifacts" },
+      { "label": "Scope", "value": "Systems / Products / Worlds" },
+      { "label": "Thesis", "value": "Proof before scale" }
+    ]
+  },
+  "contactPage": {
+    "title": "Contact",
+    "description": "Specific THALCOR collaboration, investment, builder, manufacturing, and creative partnership inquiries.",
+    "eyebrow": "Contact",
+    "heading": "Open a channel around a specific program.",
+    "intro": "Reach out when there is a focused collaboration, investment conversation, contractor capability, manufacturing path, or creative partnership worth discussing.",
+    "panelTitle": "Public channel",
+    "panelText": "Include the program area that interests you, what you can contribute, and what kind of proof or partnership you want to discuss."
+  },
+  "contactCta": {
+    "eyebrow": "Contact",
+    "heading": "Bring a serious signal.",
+    "text": "THALCOR is most interested in focused builders, technical operators, designers, funders, manufacturers, artists, and collaborators who can help turn proof into durable ventures.",
+    "buttonLabel": "Open contact channel"
+  },
+  "processSteps": [
+    {
+      "title": "Filter",
+      "text": "Ideas are graded for originality, feasibility, defensibility, funding potential, execution cost, and founder fit before they earn attention."
+    },
+    {
+      "title": "Build proof",
+      "text": "The studio turns concepts into artifacts: prototypes, landing pages, renders, tools, research briefs, demos, videos, and supplier maps."
+    },
+    {
+      "title": "Package",
+      "text": "Strong signals become clearer venture opportunities with sharper positioning, use cases, partner paths, and next actions."
+    },
+    {
+      "title": "Spin out",
+      "text": "The strongest projects can become companies, products, worlds, systems, or investable tracks with aligned talent and capital."
+    }
+  ]
+}

@@ -2,14 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
-import { site } from '../data/site';
+import { contactPage, site } from '../data/site';
 ---
-<BaseLayout title="Contact" description="Specific THALCOR collaboration, investment, builder, manufacturing, and creative partnership inquiries." canonical="/contact/">
-  <Section eyebrow="Contact" title="Open a channel around a specific program." intro="Reach out when there is a focused collaboration, investment conversation, contractor capability, manufacturing path, or creative partnership worth discussing.">
+<BaseLayout title={contactPage.title} description={contactPage.description} canonical="/contact/">
+  <Section eyebrow={contactPage.eyebrow} title={contactPage.heading} intro={contactPage.intro}>
     <div class="contact-panel surface">
       <div>
-        <h3>Public channel</h3>
-        <p>Include the program area that interests you, what you can contribute, and what kind of proof or partnership you want to discuss.</p>
+        <h3>{contactPage.panelTitle}</h3>
+        <p>{contactPage.panelText}</p>
       </div>
       <Button href={`mailto:${site.email}`}>{site.email}</Button>
     </div>

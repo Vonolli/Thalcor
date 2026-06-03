@@ -6,6 +6,10 @@ category: Media Systems
 featured: false
 heroImage: /assets/images/nightborne-hero.svg
 previewImage: /assets/images/nightborne-preview.svg
+logoImage: ''
+heroVideo: ''
+videoPath: ''
+documentPath: ''
 externalUrl: ''
 order: 4
 ---

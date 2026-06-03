@@ -1,24 +1,22 @@
 ---
 import Button from './Button.astro';
+import { homepage } from '../data/site';
 ---
 <section class="hero container">
   <div class="hero-copy">
-    <p class="kicker">Focused venture studio / experimental lab</p>
-    <h1>THALCOR</h1>
-    <p class="subheadline">A venture studio for experimental companies, systems, products, and worlds.</p>
-    <p class="supporting">Thalcor turns ambitious concepts into proof — then turns proof into companies, products, worlds, and systems.</p>
+    <p class="kicker">{homepage.eyebrow}</p>
+    <h1>{homepage.headline}</h1>
+    <p class="subheadline">{homepage.subheadline}</p>
+    <p class="supporting">{homepage.supporting}</p>
     <div class="actions">
-      <Button href="/programs/">Explore programs</Button>
-      <Button href="/join-invest/" variant="ghost">Join / invest</Button>
+      <Button href={homepage.primaryActionUrl}>{homepage.primaryActionLabel}</Button>
+      <Button href={homepage.secondaryActionUrl} variant="ghost">{homepage.secondaryActionLabel}</Button>
     </div>
   </div>
   <aside class="surface telemetry" aria-label="Studio telemetry">
-    <p class="kicker">Studio frame</p>
+    <p class="kicker">{homepage.telemetryEyebrow}</p>
     <dl>
-      <div><dt>Operating mode</dt><dd>Focused lab</dd></div>
-      <div><dt>Output</dt><dd>Proof artifacts</dd></div>
-      <div><dt>Scope</dt><dd>Systems / Products / Worlds</dd></div>
-      <div><dt>Thesis</dt><dd>Proof before scale</dd></div>
+      {homepage.telemetry.map((item) => <div><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
     </dl>
   </aside>
 </section>

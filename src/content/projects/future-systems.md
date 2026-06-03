@@ -6,6 +6,10 @@ category: Future Systems
 featured: false
 heroImage: /assets/images/future-systems-hero.svg
 previewImage: /assets/images/future-systems-preview.svg
+logoImage: ''
+heroVideo: ''
+videoPath: ''
+documentPath: ''
 externalUrl: ''
 order: 5
 ---

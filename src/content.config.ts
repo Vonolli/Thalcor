@@ -12,6 +12,13 @@ const projects = defineCollection({
     featured: z.boolean().default(false),
     heroImage: z.string(),
     previewImage: z.string(),
+    // Optional CMS-managed media fields. Add uploaded assets under
+    // `public/assets/logos`, `public/assets/videos`, or `public/assets/documents`
+    // and store their public paths here (for example `/assets/videos/demo.mp4`).
+    logoImage: z.string().optional(),
+    heroVideo: z.string().optional(),
+    videoPath: z.string().optional(),
+    documentPath: z.string().optional(),
     externalUrl: z.union([z.string().url(), z.literal('')]).optional(),
     order: z.number().default(999),
   }),
