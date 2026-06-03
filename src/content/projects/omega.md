@@ -1,6 +1,5 @@
 ---
 title: Omega
-slug: omega
 tagline: A command architecture for operators, models, memory, and execution.
 status: Active
 category: AI Command Layers

@@ -4,13 +4,14 @@ import MediaBlock from '../components/MediaBlock.astro';
 import Button from '../components/Button.astro';
 
 const { project } = Astro.props;
+const projectSlug = project.id.replace(/\.md$/, '');
 const { Content } = await project.render();
 ---
 <BaseLayout
   title={project.data.title}
   description={project.data.tagline}
   image={project.data.previewImage || project.data.heroImage}
-  canonical={`/projects/${project.data.slug}/`}
+  canonical={`/projects/${projectSlug}/`}
 >
   <article class="project-detail container">
     <p class="kicker">Project dossier / {project.data.status}</p>
