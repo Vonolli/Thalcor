@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { processSteps } from '../../data/site';
+---
+<BaseLayout title="Venture Studio" description="THALCOR builds, tests, and packages early-stage concepts into clearer venture opportunities." canonical="/venture-studio/">
+  <Section eyebrow="Venture studio" title="Build internally. Create proof. Spin out the strongest projects." intro="Thalcor builds, tests, and packages early-stage concepts into clearer venture opportunities so investors and partners can back specific proof instead of vague ambition.">
+    <div class="grid grid-2 studio-grid">
+      {processSteps.map((step, index) => (
+        <article class="surface studio-card">
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+  <ContactCTA />
+</BaseLayout>
+<style>
+  .studio-grid { align-items: stretch; }
+  .studio-card { min-height: 240px; padding: 1.15rem; }
+  .studio-card span { color: var(--color-accent); font-size: .72rem; letter-spacing: .18em; }
+  .studio-card h3 { margin-top: 2.4rem; }
+</style>

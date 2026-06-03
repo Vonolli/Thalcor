@@ -4,12 +4,12 @@ import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
 import { site } from '../data/site';
 ---
-<BaseLayout title="Contact" description="Serious inquiries for THALCOR collaboration, investment, contractors, and creative partnerships." canonical="/contact/">
-  <Section eyebrow="Contact" title="Serious inquiries only." intro="THALCOR is private by default. Reach out when there is a specific collaboration, investment conversation, contractor capability, or creative partnership worth discussing.">
+<BaseLayout title="Contact" description="Specific THALCOR collaboration, investment, builder, manufacturing, and creative partnership inquiries." canonical="/contact/">
+  <Section eyebrow="Contact" title="Open a channel around a specific program." intro="Reach out when there is a focused collaboration, investment conversation, contractor capability, manufacturing path, or creative partnership worth discussing.">
     <div class="contact-panel surface">
       <div>
         <h3>Public channel</h3>
-        <p>Use the placeholder inbox for now. Replace the address in `src/data/site.ts` when the permanent contact route is ready.</p>
+        <p>Include the program area that interests you, what you can contribute, and what kind of proof or partnership you want to discuss.</p>
       </div>
       <Button href={`mailto:${site.email}`}>{site.email}</Button>
     </div>

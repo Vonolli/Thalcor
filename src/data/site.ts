@@ -2,30 +2,30 @@
 // default SEO copy, contact email, or social preview image changes.
 export const site = {
   name: 'THALCOR',
-  title: 'THALCOR — Private Venture Studio',
+  title: 'THALCOR — Venture Studio for Experimental Companies',
   description:
-    'A private venture studio for impossible ideas across AI, design, media, hardware, and consumer products.',
+    'A venture studio building proof across intelligence systems, future hardware, consumer products, interactive worlds, creative IP, and practical infrastructure.',
   url: 'https://thalcor.ca',
   ogImage: '/assets/images/og-image.svg',
   email: 'contact@thalcor.ca',
-  tagline: 'A private venture studio for impossible ideas.',
+  tagline: 'A venture studio for experimental companies, systems, products, and worlds.',
 };
 
 export const processSteps = [
   {
-    title: 'Imagine',
-    text: 'Surface strange, high-leverage ideas before they become obvious markets.',
+    title: 'Filter',
+    text: 'Ideas are graded for originality, feasibility, defensibility, funding potential, execution cost, and founder fit before they earn attention.',
   },
   {
-    title: 'Prototype',
-    text: 'Compress uncertainty into artifacts, interfaces, models, worlds, and field tests.',
+    title: 'Build proof',
+    text: 'The studio turns concepts into artifacts: prototypes, landing pages, renders, tools, research briefs, demos, videos, and supplier maps.',
   },
   {
-    title: 'Validate',
-    text: 'Look for proof in behavior, taste, demand, technical feasibility, and founder conviction.',
+    title: 'Package',
+    text: 'Strong signals become clearer venture opportunities with sharper positioning, use cases, partner paths, and next actions.',
   },
   {
-    title: 'Compound',
-    text: 'Turn proof into repeatable systems, owned assets, distribution, and long-term leverage.',
+    title: 'Spin out',
+    text: 'The strongest projects can become companies, products, worlds, systems, or investable tracks with aligned talent and capital.',
   },
 ];

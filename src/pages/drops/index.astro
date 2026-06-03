@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+---
+<BaseLayout title="Drops" description="THALCOR Drops are proof artifacts: demos, concept pages, renders, briefs, mockups, videos, maps, and small tools." canonical="/drops/">
+  <Section eyebrow="Drops" title="Small public releases that prove thinking is turning into artifacts." intro="Drops are the public outputs of Thalcor: demos, concept pages, product renders, research briefs, mockups, landing pages, prototype videos, supplier maps, pitch one-pagers, and small software tools.">
+    <div class="grid grid-3">
+      <article class="surface drop-card"><h3>Prototype demos</h3><p>Interfaces, hardware mockups, game-system tests, tiny tools, and build logs that make ideas tangible.</p></article>
+      <article class="surface drop-card"><h3>Concept pages</h3><p>Focused one-page treatments for projects before they deserve a full company, brand, or product site.</p></article>
+      <article class="surface drop-card"><h3>Proof media</h3><p>Renders, videos, supplier maps, pitch one-pagers, and visual evidence that execution is moving.</p></article>
+    </div>
+  </Section>
+  <ContactCTA />
+</BaseLayout>
+<style>.drop-card { min-height: 230px; padding: 1.15rem; } .drop-card h3 { margin-top: 2.5rem; }</style>

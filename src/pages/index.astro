@@ -1,26 +1,38 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
-import ProjectCard from '../components/ProjectCard.astro';
 import ContactCTA from '../components/ContactCTA.astro';
+import { featuredProgramNames, allPrograms, programCategories } from '../data/programs';
 import { processSteps, site } from '../data/site';
 
-const projects = (await getCollection('projects'))
-  .sort((a, b) => a.data.order - b.data.order);
-const featuredProjects = projects.filter((project) => project.data.featured).slice(0, 3);
+const featuredPrograms = featuredProgramNames
+  .map((name) => allPrograms.find((program) => program.name === name))
+  .filter(Boolean);
 ---
 <BaseLayout title={site.title} description={site.description}>
   <Hero />
 
-  <Section eyebrow="Featured dossiers" title="Impossible ideas under active pressure." intro="Projects begin as private experiments, then become artifacts, systems, ventures, or strategic assets.">
-    <div class="grid grid-3">
-      {featuredProjects.map((project) => <ProjectCard project={project} />)}
+  <Section eyebrow="Positioning" title="A focused but ambitious lab — not a pile of ideas." intro="Thalcor builds proof across seven connected program areas. Each concept has to become sharper, more testable, and easier for capital or talent to understand.">
+    <div class="category-strip" aria-label="Main categories">
+      {programCategories.map((category) => <a href={`/programs/#${category.slug}`}>{category.title}</a>)}
     </div>
   </Section>
 
-  <Section eyebrow="Process" title="Imagine. Prototype. Validate. Compound.">
+  <Section eyebrow="Featured programs" title="Clear tracks for the strongest concepts." intro="These are not random side projects. They are organized venture tracks with named use cases, public copy, and proof paths.">
+    <div class="grid grid-3">
+      {featuredPrograms.map((program) => program && (
+        <article class="surface program-card">
+          <p class="kicker">{program.category}</p>
+          <h3>{program.name}</h3>
+          <span>{program.label}</span>
+          <p>{program.copy}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section eyebrow="Operating model" title="Ideas become proof. Proof becomes opportunity.">
     <div class="process-grid">
       {processSteps.map((step, index) => (
         <article class="surface process-card">
@@ -35,6 +47,13 @@ const featuredProjects = projects.filter((project) => project.data.featured).sli
   <ContactCTA />
 </BaseLayout>
 <style>
+  .category-strip { display: flex; flex-wrap: wrap; gap: .65rem; }
+  .category-strip a { border: 1px solid var(--color-line); border-radius: 999px; padding: .58rem .78rem; color: var(--color-silver); background: rgba(8, 13, 20, .58); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; }
+  .category-strip a:hover { border-color: var(--color-line-strong); background: var(--color-accent-soft); color: var(--color-text); }
+  .program-card { min-height: 260px; padding: 1.15rem; }
+  .program-card h3 { margin-top: 2.2rem; }
+  .program-card span { display: block; margin-top: .55rem; color: var(--color-steel); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .program-card p:not(.kicker) { margin-bottom: 0; }
   .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
   .process-card { padding: 1.1rem; }
   .process-card span { color: var(--color-accent); font-size: .72rem; letter-spacing: .18em; }
