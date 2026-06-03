@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Contact" description="Serious inquiries for THALCOR collaboration, investment, contractors, and creative partnerships." canonical="/contact/">
+  <Section eyebrow="Contact" title="Serious inquiries only." intro="THALCOR is private by default. Reach out when there is a specific collaboration, investment conversation, contractor capability, or creative partnership worth discussing.">
+    <div class="contact-panel surface">
+      <div>
+        <h3>Public channel</h3>
+        <p>Use the placeholder inbox for now. Replace the address in `src/data/site.ts` when the permanent contact route is ready.</p>
+      </div>
+      <Button href={`mailto:${site.email}`}>{site.email}</Button>
+    </div>
+  </Section>
+</BaseLayout>
+<style>
+  .contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: clamp(1.2rem, 4vw, 2rem); }
+  .contact-panel p { max-width: 620px; }
+  @media (max-width: 760px) { .contact-panel { align-items: flex-start; flex-direction: column; } }
+</style>

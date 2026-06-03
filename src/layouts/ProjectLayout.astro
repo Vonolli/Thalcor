@@ -1,0 +1,59 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import MediaBlock from '../components/MediaBlock.astro';
+import Button from '../components/Button.astro';
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+<BaseLayout
+  title={project.data.title}
+  description={project.data.tagline}
+  image={project.data.previewImage || project.data.heroImage}
+  canonical={`/projects/${project.data.slug}/`}
+>
+  <article class="project-detail container">
+    <p class="kicker">Project dossier / {project.data.status}</p>
+    <h1>{project.data.title}</h1>
+    <p class="tagline">{project.data.tagline}</p>
+
+    <div class="meta-grid" aria-label="Project metadata">
+      <div><span>Status</span><strong>{project.data.status}</strong></div>
+      <div><span>Category</span><strong>{project.data.category}</strong></div>
+      <div><span>Clearance</span><strong>{project.data.featured ? 'Featured' : 'Archive'}</strong></div>
+    </div>
+
+    <MediaBlock src={project.data.heroImage} alt={`${project.data.title} placeholder hero media`} label="Hero media placeholder" />
+
+    <div class="body-grid">
+      <aside class="surface project-aside">
+        <p class="kicker">File notes</p>
+        <p>Replace this page's image paths in the project Markdown frontmatter when final photography, video stills, renders, or product assets are ready.</p>
+        {project.data.externalUrl && <Button href={project.data.externalUrl} variant="ghost">External signal</Button>}
+      </aside>
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+
+    <Button href="/projects/" variant="ghost">Back to projects</Button>
+  </article>
+</BaseLayout>
+
+<style>
+  .project-detail { padding: 5.5rem 0 4rem; }
+  h1 { font-size: clamp(4rem, 13vw, 9rem); }
+  .tagline { max-width: 760px; margin: 1.2rem 0 1.8rem; color: var(--color-silver); font-size: clamp(1.15rem, 2vw, 1.55rem); }
+  .meta-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; margin: 2rem 0; }
+  .meta-grid div, .project-aside { padding: 1rem; }
+  .meta-grid div { border: 1px solid var(--color-line); background: rgba(8, 13, 20, 0.72); }
+  .meta-grid span { display: block; color: var(--color-dim); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
+  .meta-grid strong { display: block; margin-top: .35rem; color: var(--color-text); text-transform: uppercase; }
+  .body-grid { display: grid; grid-template-columns: minmax(220px, .36fr) 1fr; gap: 2rem; align-items: start; margin: 3rem 0; }
+  .project-aside { position: sticky; top: 6rem; }
+  @media (max-width: 860px) {
+    .project-detail { padding-top: 3.5rem; }
+    .meta-grid, .body-grid { grid-template-columns: 1fr; }
+    .project-aside { position: static; }
+  }
+</style>

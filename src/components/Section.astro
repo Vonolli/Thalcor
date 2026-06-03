@@ -1,0 +1,17 @@
+---
+interface Props { eyebrow?: string; title?: string; intro?: string; }
+const { eyebrow, title, intro } = Astro.props;
+---
+<section class="section container">
+  <div class="section-head">
+    {eyebrow && <p class="kicker">{eyebrow}</p>}
+    {title && <h2>{title}</h2>}
+    {intro && <p>{intro}</p>}
+  </div>
+  <slot />
+</section>
+<style>
+  .section { padding: 4.5rem 0 0; }
+  .section-head { display: grid; gap: .8rem; max-width: 860px; margin-bottom: 1.4rem; }
+  .section-head p:not(.kicker) { margin: 0; font-size: 1.06rem; }
+</style>
