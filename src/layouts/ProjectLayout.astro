@@ -37,7 +37,7 @@ const supportingMedia = [
     <div class="body-grid">
       <aside class="surface project-aside">
         <p class="kicker">File notes</p>
-        <p>Update this project through Pages CMS or by editing its Markdown file. Images, logos, videos, and documents should live in `public/assets` and be referenced with `/assets/...` paths.</p>
+        <p>Update this project by editing its Markdown file in `src/content/projects`. Replace imagery, logos, videos, and documents by adding media under `public/assets` and referencing `/assets/...` paths.</p>
         {project.data.externalUrl && <Button href={project.data.externalUrl} variant="ghost">External signal</Button>}
         {supportingMedia.length > 0 && (
           <ul class="asset-links">
@@ -64,7 +64,7 @@ const supportingMedia = [
   .tagline { max-width: 760px; margin: 1.2rem 0 1.8rem; color: var(--color-silver); font-size: clamp(1.15rem, 2vw, 1.55rem); }
   .meta-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; margin: 2rem 0; }
   .meta-grid div, .project-aside { padding: 1rem; }
-  .meta-grid div { border: 1px solid var(--color-line); background: rgba(255, 255, 255, 0.78); border-radius: var(--radius-md); }
+  .meta-grid div { border: 1px solid var(--color-line); background: rgba(255, 255, 255, 0.04); border-radius: var(--radius-md); }
   .meta-grid span { display: block; color: var(--color-dim); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
   .meta-grid strong { display: block; margin-top: .35rem; color: var(--color-text); text-transform: uppercase; }
   .body-grid { display: grid; grid-template-columns: minmax(220px, .36fr) 1fr; gap: 2rem; align-items: start; margin: 3rem 0; }

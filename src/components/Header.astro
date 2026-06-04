@@ -5,7 +5,7 @@ import { site } from '../data/site';
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/" aria-label={`${site.name} home`}>
-      <img src={site.brandLogo} alt="" width="34" height="34" />
+      <img src={site.brandLogo} alt="" width="36" height="36" />
       <span>{site.name}</span>
     </a>
     <nav aria-label="Primary navigation">
@@ -14,16 +14,16 @@ import { site } from '../data/site';
   </div>
 </header>
 <style>
-  .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--color-line); background: rgba(251, 250, 246, 0.86); backdrop-filter: blur(18px); }
-  .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 78px; gap: 1rem; }
-  .brand { display: inline-flex; align-items: center; gap: .75rem; color: var(--color-text); text-decoration: none; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
-  .brand img { border: 1px solid var(--color-line); border-radius: 50%; background: #fff; padding: 3px; }
-  nav { display: flex; align-items: center; gap: .2rem; flex-wrap: wrap; justify-content: flex-end; }
-  nav a { border-radius: 999px; padding: .68rem .78rem; color: var(--color-muted); font-size: .72rem; font-weight: 750; letter-spacing: .13em; text-decoration: none; text-transform: uppercase; transition: color .2s ease, background .2s ease; }
-  nav a:hover { color: var(--color-text); background: var(--color-accent-soft); }
+  .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--color-line); background: rgba(3, 5, 10, 0.72); backdrop-filter: blur(22px); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: 1rem; }
+  .brand { display: inline-flex; align-items: center; gap: .78rem; color: var(--color-text); text-decoration: none; font-weight: 850; letter-spacing: .24em; text-transform: uppercase; }
+  .brand img { border: 1px solid var(--color-line-strong); border-radius: 50%; background: radial-gradient(circle, rgba(127,199,255,.2), rgba(255,255,255,.04)); padding: 3px; box-shadow: 0 0 30px rgba(127,199,255,.12); }
+  nav { display: flex; align-items: center; gap: .18rem; flex-wrap: wrap; justify-content: flex-end; }
+  nav a { border: 1px solid transparent; border-radius: 999px; padding: .68rem .78rem; color: var(--color-muted); font-size: .72rem; font-weight: 760; letter-spacing: .13em; text-decoration: none; text-transform: uppercase; transition: color .2s ease, background .2s ease, border-color .2s ease; }
+  nav a:hover { color: var(--color-text); background: rgba(127,199,255,.08); border-color: var(--color-line); }
   @media (max-width: 700px) {
     .header-inner { align-items: flex-start; flex-direction: column; padding: .85rem 0; }
     nav { justify-content: flex-start; }
-    nav a { padding-left: 0; }
+    nav a { padding-left: 0; padding-right: .65rem; }
   }
 </style>

@@ -1,38 +1,40 @@
 :root {
-  --color-void: #f7f5ef;
-  --color-obsidian: #ffffff;
-  --color-panel: #ffffff;
-  --color-panel-strong: #fdfcf8;
-  --color-text: #202124;
-  --color-muted: #5f6368;
-  --color-dim: #8a8176;
-  --color-line: rgba(32, 33, 36, 0.14);
-  --color-line-strong: rgba(32, 33, 36, 0.34);
-  --color-accent: #1a73e8;
-  --color-accent-soft: rgba(26, 115, 232, 0.09);
-  --color-silver: #3c4043;
-  --color-steel: #6f6a61;
-  --color-gold: #fbbc04;
-  --shadow-premium: 0 22px 55px rgba(60, 64, 67, 0.12);
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  --color-void: #03050a;
+  --color-obsidian: #070a11;
+  --color-panel: rgba(10, 15, 24, 0.78);
+  --color-panel-strong: rgba(14, 21, 33, 0.9);
+  --color-text: #f3f7fb;
+  --color-muted: #a7b2c0;
+  --color-dim: #6f7d8c;
+  --color-line: rgba(177, 201, 226, 0.14);
+  --color-line-strong: rgba(199, 224, 255, 0.34);
+  --color-accent: #7fc7ff;
+  --color-accent-soft: rgba(77, 166, 255, 0.13);
+  --color-silver: #d7dee7;
+  --color-steel: #8190a3;
+  --color-gold: #d7c48c;
+  --shadow-premium: 0 28px 80px rgba(0, 0, 0, 0.42);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
   --max-width: 1220px;
   --font-serif: Georgia, 'Times New Roman', serif;
-  --font-sans: Inter, Google Sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * { box-sizing: border-box; }
-html { color-scheme: light; background: var(--color-void); scroll-behavior: smooth; }
+html { color-scheme: dark; background: var(--color-void); scroll-behavior: smooth; }
 body {
   margin: 0;
   min-width: 320px;
   color: var(--color-text);
   font-family: var(--font-sans);
   background:
-    radial-gradient(circle at 14% 9%, rgba(251, 188, 4, 0.16), transparent 23rem),
-    radial-gradient(circle at 92% 14%, rgba(66, 133, 244, 0.12), transparent 25rem),
-    linear-gradient(180deg, #fbfaf6 0%, #f5f1e8 54%, #fbfaf6 100%);
+    radial-gradient(circle at 18% 8%, rgba(84, 156, 223, 0.2), transparent 28rem),
+    radial-gradient(circle at 88% 4%, rgba(190, 210, 232, 0.1), transparent 22rem),
+    radial-gradient(circle at 50% 100%, rgba(31, 78, 124, 0.18), transparent 34rem),
+    linear-gradient(180deg, #03050a 0%, #070a11 48%, #03050a 100%);
+  overflow-x: hidden;
 }
 body::before,
 body::after {
@@ -44,37 +46,45 @@ body::after {
 }
 body::before {
   background-image:
-    linear-gradient(rgba(32, 33, 36, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(32, 33, 36, 0.035) 1px, transparent 1px);
-  background-size: 88px 88px;
-  mask-image: linear-gradient(to bottom, black, transparent 72%);
+    linear-gradient(rgba(189, 214, 238, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(189, 214, 238, 0.035) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 72%);
 }
 body::after {
-  opacity: 0.56;
-  background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0));
+  opacity: .42;
+  background:
+    linear-gradient(110deg, rgba(255,255,255,.09), transparent 18%, transparent 80%, rgba(127,199,255,.08)),
+    radial-gradient(circle at 50% 16%, rgba(255,255,255,.09), transparent 1px);
+  background-size: auto, 3px 3px;
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
 
 a { color: inherit; }
 img, video { display: block; max-width: 100%; }
-::selection { background: rgba(26, 115, 232, 0.18); }
+::selection { background: rgba(127, 199, 255, 0.28); color: var(--color-text); }
 
 .site-shell { min-height: 100vh; display: flex; flex-direction: column; }
 .container { width: min(100% - 2rem, var(--max-width)); margin-inline: auto; }
 main { flex: 1; }
 
 .kicker {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.9rem;
   color: var(--color-accent);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
 h1, h2, h3 { color: var(--color-text); line-height: 1; }
-h1, h2 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.045em; }
-h1 { margin: 0; font-size: clamp(4rem, 15vw, 10rem); }
-h2 { margin: 0; font-size: clamp(2.3rem, 6vw, 5.2rem); }
+h1, h2 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.055em; }
+h1 { margin: 0; font-size: clamp(4.4rem, 15vw, 11.5rem); }
+h2 { margin: 0; font-size: clamp(2.35rem, 6vw, 5.5rem); }
 h3 { margin: 0; font-size: clamp(1.1rem, 2vw, 1.45rem); letter-spacing: 0.01em; }
 p { color: var(--color-muted); line-height: 1.75; }
 
@@ -82,18 +92,20 @@ p { color: var(--color-muted); line-height: 1.75; }
   position: relative;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-lg);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(250, 247, 239, 0.9));
-  box-shadow: var(--shadow-premium), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  background: linear-gradient(145deg, rgba(13, 20, 32, 0.86), rgba(7, 10, 17, 0.72));
+  box-shadow: var(--shadow-premium), inset 0 1px 0 rgba(255, 255, 255, 0.07);
   overflow: hidden;
+  backdrop-filter: blur(18px);
 }
 .surface::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(115deg, rgba(255,255,255,0.5), transparent 28%, transparent 72%, rgba(26,115,232,0.07));
+  background: linear-gradient(118deg, rgba(255,255,255,.09), transparent 30%, transparent 72%, rgba(127,199,255,.12));
   pointer-events: none;
 }
+.surface > * { position: relative; z-index: 1; }
 
 .stack { display: grid; gap: 1rem; }
 .grid { display: grid; gap: 1rem; }
@@ -101,7 +113,7 @@ p { color: var(--color-muted); line-height: 1.75; }
 .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 .prose { max-width: 76ch; }
-.prose p, .prose li { color: #4f555b; line-height: 1.85; }
+.prose p, .prose li { color: var(--color-muted); line-height: 1.9; }
 .prose h2 { margin-top: 2.6rem; font-size: clamp(2rem, 4vw, 3.4rem); }
 .prose h3 { margin-top: 2rem; }
 .prose a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.3em; }
