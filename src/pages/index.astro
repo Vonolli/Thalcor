@@ -1,34 +1,29 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import ContactCTA from '../components/ContactCTA.astro';
-import { featuredProgramNames, allPrograms, programCategories } from '../data/programs';
+import ProjectCard from '../components/ProjectCard.astro';
 import { homepage, processSteps, site } from '../data/site';
 
-const featuredPrograms = featuredProgramNames
-  .map((name) => allPrograms.find((program) => program.name === name))
-  .filter(Boolean);
+const featuredProjects = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 5);
 ---
 <BaseLayout title={site.title} description={site.description}>
   <Hero />
 
   <Section eyebrow={homepage.positioningEyebrow} title={homepage.positioningTitle} intro={homepage.positioningIntro}>
-    <div class="category-strip" aria-label="Main categories">
-      {programCategories.map((category) => <a href={`/programs/#${category.slug}`}>{category.title}</a>)}
+    <div class="manifesto-panel surface">
+      <p>Founder-led means the studio keeps taste, technical curiosity, and operational discipline in the same room. THALCOR is built to move from private thinking to public proof without losing the original signal.</p>
+      <p>Every serious idea earns a file, a prototype path, and a question: can this become leverage?</p>
     </div>
   </Section>
 
   <Section eyebrow={homepage.featuredProgramsEyebrow} title={homepage.featuredProgramsTitle} intro={homepage.featuredProgramsIntro}>
-    <div class="grid grid-3">
-      {featuredPrograms.map((program) => program && (
-        <article class="surface program-card">
-          <p class="kicker">{program.category}</p>
-          <h3>{program.name}</h3>
-          <span>{program.label}</span>
-          <p>{program.copy}</p>
-        </article>
-      ))}
+    <div class="featured-projects">
+      {featuredProjects.map((project) => <ProjectCard project={project} />)}
     </div>
   </Section>
 
@@ -44,20 +39,36 @@ const featuredPrograms = featuredProgramNames
     </div>
   </Section>
 
+  <Section eyebrow={homepage.labsEyebrow} title={homepage.labsTitle} intro={homepage.labsIntro}>
+    <div class="labs-panel surface">
+      <div>
+        <p class="kicker">Controlled chaos</p>
+        <h3>Research, artifacts, and operating loops decide what survives.</h3>
+      </div>
+      <ul>
+        <li>Idea scoring matrices for originality, feasibility, defensibility, capital fit, and founder energy.</li>
+        <li>Prototype briefs that turn abstract concepts into visible proof before major spend.</li>
+        <li>Reusable creative, technical, supplier, and AI systems that make each experiment smarter than the last.</li>
+      </ul>
+    </div>
+  </Section>
+
   <ContactCTA />
 </BaseLayout>
 <style>
-  .category-strip { display: flex; flex-wrap: wrap; gap: .65rem; }
-  .category-strip a { border: 1px solid var(--color-line); border-radius: 999px; padding: .58rem .78rem; color: var(--color-silver); background: rgba(8, 13, 20, .58); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; }
-  .category-strip a:hover { border-color: var(--color-line-strong); background: var(--color-accent-soft); color: var(--color-text); }
-  .program-card { min-height: 260px; padding: 1.15rem; }
-  .program-card h3 { margin-top: 2.2rem; }
-  .program-card span { display: block; margin-top: .55rem; color: var(--color-steel); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-  .program-card p:not(.kicker) { margin-bottom: 0; }
+  .manifesto-panel { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 4vw, 3rem); padding: clamp(1.25rem, 4vw, 2.4rem); }
+  .manifesto-panel p { margin: 0; color: var(--color-silver); font-size: clamp(1rem, 1.6vw, 1.18rem); }
+  .featured-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
+  .featured-projects :global(.project-card:first-child) { grid-column: span 2; min-height: 560px; }
   .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
-  .process-card { padding: 1.1rem; }
+  .process-card { padding: 1.15rem; min-height: 270px; }
   .process-card span { color: var(--color-accent); font-size: .72rem; letter-spacing: .18em; }
-  .process-card h3 { margin-top: 2rem; }
+  .process-card h3 { margin-top: 2.2rem; }
+  .labs-panel { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.2rem, 4vw, 3rem); padding: clamp(1.25rem, 4vw, 2.4rem); }
+  .labs-panel h3 { max-width: 520px; font-size: clamp(1.65rem, 3vw, 2.7rem); letter-spacing: -.04em; }
+  .labs-panel ul { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+  .labs-panel li { color: var(--color-silver); line-height: 1.7; border-top: 1px solid var(--color-line); padding-top: 1rem; }
   @media (max-width: 980px) { .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) { .manifesto-panel, .labs-panel, .featured-projects, .featured-projects :global(.project-card:first-child) { grid-template-columns: 1fr; grid-column: auto; } }
   @media (max-width: 620px) { .process-grid { grid-template-columns: 1fr; } }
 </style>

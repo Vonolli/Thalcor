@@ -10,12 +10,12 @@ const projects = (await getCollection('projects')).sort((a, b) => {
 const categories = [...new Set(projects.map((project) => project.data.category))];
 const statuses = [...new Set(projects.map((project) => project.data.status))];
 ---
-<BaseLayout title="Projects" description="THALCOR project dossiers across AI, design, media, hardware, and consumer products." canonical="/projects/">
+<BaseLayout title="Projects" description="THALCOR project dossiers across AI, design, media, hardware, consumer products, and future systems." canonical="/projects/">
   <div class="projects-page">
     <section class="project-hero container" aria-labelledby="projects-title">
-      <p class="kicker">Moonshot archive</p>
+      <p class="kicker">Project archive</p>
       <h1 id="projects-title" aria-label="Projects">Projects</h1>
-      <p class="hero-copy">See the active experiments, prototypes, and venture files moving through the THALCOR studio — from AI command layers to physical artifacts and consumer systems.</p>
+      <p class="hero-copy">Active experiments, prototypes, and venture files moving through the THALCOR studio — from personal AI systems to physical artifacts, creative labels, beverages, robotics, and advanced concepts.</p>
     </section>
 
     <section class="project-directory container" aria-label="Project directory">
@@ -48,7 +48,7 @@ const statuses = [...new Set(projects.map((project) => project.data.status))];
   h1 {
     font-family: var(--font-sans);
     font-size: clamp(3.6rem, 12vw, 9.5rem);
-    font-weight: 500;
+    font-weight: 520;
     letter-spacing: .34em;
     margin-right: -.34em;
     text-transform: uppercase;
