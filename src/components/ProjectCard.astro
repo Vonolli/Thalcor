@@ -3,26 +3,44 @@ interface Props { project: any; }
 const { project } = Astro.props;
 const projectSlug = project.id.replace(/\.md$/, '');
 ---
-<a class="project-card surface" href={`/projects/${projectSlug}/`}>
+<a class="project-card" href={`/projects/${projectSlug}/`}>
   <div class="media">
     <img src={project.data.previewImage} alt={`${project.data.title} preview placeholder`} loading="lazy" />
   </div>
   <div class="content">
-    <div class="meta"><span>{project.data.category}</span><span>{project.data.status}</span></div>
+    <p class="eyebrow">{project.data.category}</p>
     <h3>{project.data.title}</h3>
-    <p>{project.data.tagline}</p>
-    <div class="foot"><span>{project.data.featured ? 'Featured file' : 'Archive file'}</span><span>#{String(project.data.order).padStart(2, '0')}</span></div>
+    <p class="tagline">{project.data.tagline}</p>
+    <div class="foot">
+      <span>{project.data.status}</span>
+      <span>{project.data.featured ? 'Current Project' : 'Lab Project'}</span>
+    </div>
   </div>
 </a>
 <style>
-  .project-card { display: grid; min-height: 100%; color: inherit; text-decoration: none; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-  .project-card:hover { transform: translateY(-6px); border-color: rgba(127,180,223,.58); box-shadow: 0 34px 90px rgba(0,0,0,.56), 0 0 42px rgba(127,180,223,.12); }
-  .media { aspect-ratio: 1.45; border-bottom: 1px solid var(--color-line); overflow: hidden; background: #070b11; }
-  img { width: 100%; height: 100%; object-fit: cover; opacity: .82; filter: saturate(.78) contrast(1.08); transition: transform .45s ease, opacity .3s ease; }
-  .project-card:hover img { transform: scale(1.04); opacity: 1; }
-  .content { display: grid; gap: .75rem; padding: 1rem; }
-  .meta, .foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--color-dim); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; }
-  h3 { letter-spacing: .14em; text-transform: uppercase; }
-  p { margin: 0; }
-  .foot { border-top: 1px solid var(--color-line); padding-top: .8rem; color: var(--color-steel); }
+  .project-card {
+    position: relative;
+    display: grid;
+    min-height: 470px;
+    color: inherit;
+    text-decoration: none;
+    background: rgba(255, 255, 255, .74);
+    border-right: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .project-card:hover { z-index: 1; background: #fff; transform: translateY(-4px); box-shadow: 0 24px 60px rgba(60, 64, 67, .16); }
+  .media { min-height: 235px; overflow: hidden; background: #ece8dc; }
+  img { width: 100%; height: 100%; object-fit: cover; opacity: .9; filter: saturate(.92) contrast(1.02); transition: transform .5s ease, opacity .3s ease; }
+  .project-card:hover img { transform: scale(1.045); opacity: 1; }
+  .content { display: grid; align-content: start; gap: .72rem; padding: clamp(1.1rem, 2.5vw, 1.7rem); }
+  .eyebrow { margin: 0; color: var(--color-accent); font-size: .68rem; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+  h3 { font-family: var(--font-sans); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 500; letter-spacing: -.035em; line-height: .98; }
+  .tagline { max-width: 32rem; margin: 0; color: var(--color-silver); font-size: 1.02rem; line-height: 1.55; }
+  .foot { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .4rem; color: var(--color-muted); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .foot span { display: inline-flex; align-items: center; min-height: 2rem; border: 1px solid var(--color-line); border-radius: 999px; padding: .32rem .66rem; background: rgba(247,245,239,.7); }
+  @media (max-width: 660px) {
+    .project-card { min-height: auto; }
+    .media { min-height: 200px; }
+  }
 </style>

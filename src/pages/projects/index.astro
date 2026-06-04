@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Section from '../../components/Section.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 
 const projects = (await getCollection('projects')).sort((a, b) => {
@@ -9,18 +8,68 @@ const projects = (await getCollection('projects')).sort((a, b) => {
   return a.data.order - b.data.order;
 });
 const categories = [...new Set(projects.map((project) => project.data.category))];
+const statuses = [...new Set(projects.map((project) => project.data.status))];
 ---
 <BaseLayout title="Projects" description="THALCOR project dossiers across AI, design, media, hardware, and consumer products." canonical="/projects/">
-  <Section eyebrow="Project archive" title="Classified lab files for active and emerging ventures." intro="Add a new project by dropping a Markdown file into `src/content/projects` with the required frontmatter fields.">
-    <div class="category-row" aria-label="Project categories">
-      {categories.map((category) => <span>{category}</span>)}
-    </div>
-    <div class="grid grid-3">
-      {projects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </Section>
+  <div class="projects-page">
+    <section class="project-hero container" aria-labelledby="projects-title">
+      <p class="kicker">Moonshot archive</p>
+      <h1 id="projects-title" aria-label="Projects">Projects</h1>
+      <p class="hero-copy">See the active experiments, prototypes, and venture files moving through the THALCOR studio — from AI command layers to physical artifacts and consumer systems.</p>
+    </section>
+
+    <section class="project-directory container" aria-label="Project directory">
+      <aside class="filters" aria-label="Project filters">
+        <div class="filter-block">
+          <h2>All Projects</h2>
+          <a href="/projects/" aria-current="page">All by signal</a>
+          <a href="/projects/">All A-Z</a>
+        </div>
+        <div class="filter-block">
+          <h2>Status</h2>
+          {statuses.map((status) => <a href={`/projects/?status=${encodeURIComponent(status)}`}>{status}</a>)}
+        </div>
+        <div class="filter-block">
+          <h2>Topic</h2>
+          {categories.map((category) => <a href={`/projects/?topic=${encodeURIComponent(category)}`}>{category}</a>)}
+        </div>
+      </aside>
+
+      <div class="project-list">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+  </div>
 </BaseLayout>
 <style>
-  .category-row { display: flex; flex-wrap: wrap; gap: .55rem; margin: 0 0 1.3rem; }
-  .category-row span { border: 1px solid var(--color-line); border-radius: 999px; padding: .45rem .65rem; color: var(--color-steel); background: rgba(8, 13, 20, .58); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+  .projects-page { padding-bottom: 2rem; }
+  .project-hero { padding: clamp(4rem, 10vw, 8rem) 0 clamp(2rem, 6vw, 4.5rem); text-align: center; }
+  .project-hero .kicker { color: var(--color-muted); }
+  h1 {
+    font-family: var(--font-sans);
+    font-size: clamp(3.6rem, 12vw, 9.5rem);
+    font-weight: 500;
+    letter-spacing: .34em;
+    margin-right: -.34em;
+    text-transform: uppercase;
+  }
+  .hero-copy { max-width: 760px; margin: 1.4rem auto 0; color: var(--color-silver); font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.65; }
+  .project-directory { display: grid; grid-template-columns: minmax(180px, 230px) 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+  .filters { position: sticky; top: 100px; display: grid; gap: 2.1rem; padding: 1.2rem 0 2rem; border-top: 1px solid var(--color-line); }
+  .filter-block { display: grid; gap: .54rem; }
+  .filter-block h2 { margin: 0 0 .2rem; font-family: var(--font-sans); font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+  .filter-block a { width: fit-content; color: var(--color-muted); font-size: .96rem; line-height: 1.35; text-decoration: none; }
+  .filter-block a:hover, .filter-block a[aria-current='page'] { color: var(--color-accent); }
+  .project-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
+  @media (max-width: 880px) {
+    .project-hero { text-align: left; }
+    h1 { letter-spacing: .2em; margin-right: -.2em; }
+    .hero-copy { margin-left: 0; }
+    .project-directory { grid-template-columns: 1fr; }
+    .filters { position: static; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  }
+  @media (max-width: 660px) {
+    h1 { font-size: clamp(2.55rem, 15vw, 4rem); letter-spacing: .12em; margin-right: -.12em; }
+    .filters, .project-list { grid-template-columns: 1fr; }
+  }
 </style>
