@@ -2,7 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/Section.astro';
 import Button from '../../components/Button.astro';
-import { site } from '../../data/site';
+import { getSiteContent } from '../../lib/content';
+
+const site = await getSiteContent();
 ---
 <BaseLayout title="Join / Invest" description="Express interest in specific THALCOR projects as an investor, builder, designer, engineer, manufacturer, operator, or collaborator." canonical="/join-invest/">
   <Section eyebrow="Investor / Talent Portal" title="Capital, skill, and aligned people around specific projects." intro="Thalcor is built to attract investors, builders, designers, engineers, manufacturers, operators, and collaborators around defined programs instead of vague networking.">

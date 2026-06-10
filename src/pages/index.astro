@@ -5,31 +5,32 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { homepage, processSteps, site } from '../data/site';
+import { getHomepageContent } from '../lib/content';
 
+const homepage = await getHomepageContent();
 const featuredProjects = (await getCollection('projects'))
+  .filter((project) => project.data.featured)
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 5);
 ---
-<BaseLayout title={site.title} description={site.description}>
+<BaseLayout title={homepage.seoTitle} description={homepage.seoDescription}>
   <Hero />
 
-  <Section eyebrow={homepage.positioningEyebrow} title={homepage.positioningTitle} intro={homepage.positioningIntro}>
+  <Section eyebrow={homepage.manifesto.eyebrow} title={homepage.manifesto.title} intro={homepage.manifesto.intro}>
     <div class="manifesto-panel surface">
-      <p>Founder-led means the studio keeps taste, technical curiosity, and operational discipline in the same room. THALCOR is built to move from private thinking to public proof without losing the original signal.</p>
-      <p>Every serious idea earns a file, a prototype path, and a question: can this become leverage?</p>
+      {homepage.manifesto.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
     </div>
   </Section>
 
-  <Section eyebrow={homepage.featuredProgramsEyebrow} title={homepage.featuredProgramsTitle} intro={homepage.featuredProgramsIntro}>
+  <Section eyebrow={homepage.featuredProjects.eyebrow} title={homepage.featuredProjects.title} intro={homepage.featuredProjects.intro}>
     <div class="featured-projects">
       {featuredProjects.map((project) => <ProjectCard project={project} />)}
     </div>
   </Section>
 
-  <Section eyebrow={homepage.processEyebrow} title={homepage.processTitle}>
+  <Section eyebrow={homepage.process.eyebrow} title={homepage.process.title}>
     <div class="process-grid">
-      {processSteps.map((step, index) => (
+      {homepage.process.steps.map((step, index) => (
         <article class="surface process-card">
           <span>{String(index + 1).padStart(2, '0')}</span>
           <h3>{step.title}</h3>
@@ -39,16 +40,14 @@ const featuredProjects = (await getCollection('projects'))
     </div>
   </Section>
 
-  <Section eyebrow={homepage.labsEyebrow} title={homepage.labsTitle} intro={homepage.labsIntro}>
+  <Section eyebrow={homepage.labs.eyebrow} title={homepage.labs.title} intro={homepage.labs.intro}>
     <div class="labs-panel surface">
       <div>
-        <p class="kicker">Controlled chaos</p>
-        <h3>Research, artifacts, and operating loops decide what survives.</h3>
+        <p class="kicker">{homepage.labs.panelEyebrow}</p>
+        <h3>{homepage.labs.panelTitle}</h3>
       </div>
       <ul>
-        <li>Idea scoring matrices for originality, feasibility, defensibility, capital fit, and founder energy.</li>
-        <li>Prototype briefs that turn abstract concepts into visible proof before major spend.</li>
-        <li>Reusable creative, technical, supplier, and AI systems that make each experiment smarter than the last.</li>
+        {homepage.labs.items.map((item) => <li>{item}</li>)}
       </ul>
     </div>
   </Section>

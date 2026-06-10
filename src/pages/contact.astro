@@ -2,7 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
-import { contactPage, site } from '../data/site';
+import { getSiteContent } from '../lib/content';
+
+const site = await getSiteContent();
+const contactPage = site.contactPage;
 ---
 <BaseLayout title={contactPage.title} description={contactPage.description} canonical="/contact/">
   <Section eyebrow={contactPage.eyebrow} title={contactPage.heading} intro={contactPage.intro}>

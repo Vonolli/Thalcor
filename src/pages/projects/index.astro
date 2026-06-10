@@ -2,7 +2,9 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
+import { getProjectPageContent } from '../../lib/content';
 
+const page = await getProjectPageContent();
 const projects = (await getCollection('projects')).sort((a, b) => {
   if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
   return a.data.order - b.data.order;
@@ -10,27 +12,27 @@ const projects = (await getCollection('projects')).sort((a, b) => {
 const categories = [...new Set(projects.map((project) => project.data.category))];
 const statuses = [...new Set(projects.map((project) => project.data.status))];
 ---
-<BaseLayout title="Projects" description="THALCOR project dossiers across AI, design, media, hardware, consumer products, and future systems." canonical="/projects/">
+<BaseLayout title={page.seoTitle} description={page.seoDescription} canonical="/projects/">
   <div class="projects-page">
     <section class="project-hero container" aria-labelledby="projects-title">
-      <p class="kicker">Project archive</p>
-      <h1 id="projects-title" aria-label="Projects">Projects</h1>
-      <p class="hero-copy">Active experiments, prototypes, and venture files moving through the THALCOR studio — from personal AI systems to physical artifacts, creative labels, beverages, robotics, and advanced concepts.</p>
+      <p class="kicker">{page.hero.eyebrow}</p>
+      <h1 id="projects-title">{page.hero.title}</h1>
+      <p class="hero-copy">{page.hero.description}</p>
     </section>
 
     <section class="project-directory container" aria-label="Project directory">
       <aside class="filters" aria-label="Project filters">
         <div class="filter-block">
-          <h2>All Projects</h2>
-          <a href="/projects/" aria-current="page">All by signal</a>
-          <a href="/projects/">All A-Z</a>
+          <h2>{page.filters.allTitle}</h2>
+          <a href="/projects/" aria-current="page">{page.filters.allSignalLabel}</a>
+          <a href="/projects/">{page.filters.allAlphabeticalLabel}</a>
         </div>
         <div class="filter-block">
-          <h2>Status</h2>
+          <h2>{page.filters.statusTitle}</h2>
           {statuses.map((status) => <a href={`/projects/?status=${encodeURIComponent(status)}`}>{status}</a>)}
         </div>
         <div class="filter-block">
-          <h2>Topic</h2>
+          <h2>{page.filters.categoryTitle}</h2>
           {categories.map((category) => <a href={`/projects/?topic=${encodeURIComponent(category)}`}>{category}</a>)}
         </div>
       </aside>

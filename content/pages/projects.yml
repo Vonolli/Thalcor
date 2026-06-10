@@ -1,0 +1,26 @@
+seoTitle: Projects
+seoDescription: THALCOR project dossiers across AI, design, media, hardware, consumer products, and future systems.
+hero:
+  eyebrow: Project archive
+  title: Projects
+  description: Active experiments, prototypes, and venture files moving through the THALCOR studio — from personal AI systems to physical artifacts, creative labels, beverages, robotics, and advanced concepts.
+filters:
+  allTitle: All Projects
+  allSignalLabel: All by signal
+  allAlphabeticalLabel: All A-Z
+  statusTitle: Status
+  categoryTitle: Topic
+detail:
+  dossierLabel: Project dossier
+  statusLabel: Status
+  categoryLabel: Category
+  clearanceLabel: Clearance
+  featuredLabel: Featured
+  archiveLabel: Archive
+  heroMediaLabel: Hero media
+  fileNotesLabel: File notes
+  fileNotes: Project copy and media are managed in the Git-backed content library. Images, logos, videos, and documents can be replaced without changing the Astro layout.
+  externalLinkLabel: External signal
+  videoLinkLabel: Project video
+  documentLinkLabel: Project document
+  backLabel: Back to projects

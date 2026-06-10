@@ -1,15 +1,19 @@
 ---
+import { render } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import MediaBlock from '../components/MediaBlock.astro';
 import Button from '../components/Button.astro';
+import { getProjectPageContent } from '../lib/content';
 
 const { project } = Astro.props;
+const page = await getProjectPageContent();
+const labels = page.detail;
 const projectSlug = project.id.replace(/\.md$/, '');
-const { Content } = await project.render();
+const { Content } = await render(project);
 const heroMedia = project.data.heroVideo || project.data.heroImage;
 const supportingMedia = [
-  { label: 'Project video', href: project.data.videoPath },
-  { label: 'Project document', href: project.data.documentPath },
+  { label: labels.videoLinkLabel, href: project.data.videoPath },
+  { label: labels.documentLinkLabel, href: project.data.documentPath },
 ].filter((item) => item.href);
 ---
 <BaseLayout
@@ -19,7 +23,7 @@ const supportingMedia = [
   canonical={`/projects/${projectSlug}/`}
 >
   <article class="project-detail container">
-    <p class="kicker">Project dossier / {project.data.status}</p>
+    <p class="kicker">{labels.dossierLabel} / {project.data.status}</p>
     <div class="title-row">
       {project.data.logoImage && <img src={project.data.logoImage} alt={`${project.data.title} logo`} class="project-logo" loading="lazy" />}
       <h1>{project.data.title}</h1>
@@ -27,18 +31,18 @@ const supportingMedia = [
     <p class="tagline">{project.data.tagline}</p>
 
     <div class="meta-grid" aria-label="Project metadata">
-      <div><span>Status</span><strong>{project.data.status}</strong></div>
-      <div><span>Category</span><strong>{project.data.category}</strong></div>
-      <div><span>Clearance</span><strong>{project.data.featured ? 'Featured' : 'Archive'}</strong></div>
+      <div><span>{labels.statusLabel}</span><strong>{project.data.status}</strong></div>
+      <div><span>{labels.categoryLabel}</span><strong>{project.data.category}</strong></div>
+      <div><span>{labels.clearanceLabel}</span><strong>{project.data.featured ? labels.featuredLabel : labels.archiveLabel}</strong></div>
     </div>
 
-    <MediaBlock src={heroMedia} alt={`${project.data.title} hero media`} label="Hero media" />
+    <MediaBlock src={heroMedia} alt={`${project.data.title} hero media`} label={labels.heroMediaLabel} />
 
     <div class="body-grid">
       <aside class="surface project-aside">
-        <p class="kicker">File notes</p>
-        <p>Update this project by editing its Markdown file in `src/content/projects`. Replace imagery, logos, videos, and documents by adding media under `public/assets` and referencing `/assets/...` paths.</p>
-        {project.data.externalUrl && <Button href={project.data.externalUrl} variant="ghost">External signal</Button>}
+        <p class="kicker">{labels.fileNotesLabel}</p>
+        <p>{labels.fileNotes}</p>
+        {project.data.externalUrl && <Button href={project.data.externalUrl} variant="ghost">{labels.externalLinkLabel}</Button>}
         {supportingMedia.length > 0 && (
           <ul class="asset-links">
             {supportingMedia.map((item) => (
@@ -52,7 +56,7 @@ const supportingMedia = [
       </div>
     </div>
 
-    <Button href="/projects/" variant="ghost">Back to projects</Button>
+    <Button href="/projects/" variant="ghost">{labels.backLabel}</Button>
   </article>
 </BaseLayout>
 

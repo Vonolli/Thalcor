@@ -1,6 +1,7 @@
 ---
-import { navigation } from '../data/navigation';
-import { site } from '../data/site';
+import { getSiteContent } from '../lib/content';
+
+const site = await getSiteContent();
 ---
 <header class="site-header">
   <div class="container header-inner">
@@ -9,7 +10,7 @@ import { site } from '../data/site';
       <span>{site.name}</span>
     </a>
     <nav aria-label="Primary navigation">
-      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+      {site.navigation.map((item) => <a href={item.url}>{item.label}</a>)}
     </nav>
   </div>
 </header>
