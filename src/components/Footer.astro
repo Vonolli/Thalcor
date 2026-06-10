@@ -1,11 +1,13 @@
 ---
-import { site } from '../data/site';
+import { getSiteContent } from '../lib/content';
+
+const site = await getSiteContent();
 ---
 <footer class="site-footer">
   <div class="container footer-inner">
     <div>
-      <p class="kicker">THALCOR / proof before scale</p>
-      <p>Ambitious concepts become proof, then products, companies, worlds, and systems.</p>
+      <p class="kicker">{site.footer.eyebrow}</p>
+      <p>{site.footer.text}</p>
     </div>
     <a href={`mailto:${site.email}`}>{site.email}</a>
   </div>

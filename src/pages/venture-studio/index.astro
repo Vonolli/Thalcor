@@ -2,7 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/Section.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
-import { processSteps } from '../../data/site';
+import { getHomepageContent } from '../../lib/content';
+
+const homepage = await getHomepageContent();
+const processSteps = homepage.process.steps;
 ---
 <BaseLayout title="Venture Studio" description="THALCOR builds, tests, and packages early-stage concepts into clearer venture opportunities." canonical="/venture-studio/">
   <Section eyebrow="Venture studio" title="Build internally. Create proof. Spin out the strongest projects." intro="Thalcor builds, tests, and packages early-stage concepts into clearer venture opportunities so investors and partners can back specific proof instead of vague ambition.">

@@ -1,22 +1,25 @@
 ---
 import Button from './Button.astro';
-import { homepage } from '../data/site';
+import { getHomepageContent } from '../lib/content';
+
+const homepage = await getHomepageContent();
+const hero = homepage.hero;
 ---
 <section class="hero container" aria-labelledby="hero-title">
   <div class="hero-copy">
-    <p class="kicker">{homepage.eyebrow}</p>
-    <h1 id="hero-title">{homepage.headline}</h1>
-    <p class="subheadline">{homepage.subheadline}</p>
-    <p class="supporting">{homepage.supporting}</p>
+    <p class="kicker">{hero.eyebrow}</p>
+    <h1 id="hero-title">{hero.headline}</h1>
+    <p class="subheadline">{hero.subheadline}</p>
+    <p class="supporting">{hero.supporting}</p>
     <div class="actions">
-      <Button href={homepage.primaryActionUrl}>{homepage.primaryActionLabel}</Button>
-      <Button href={homepage.secondaryActionUrl} variant="ghost">{homepage.secondaryActionLabel}</Button>
+      <Button href={hero.primaryAction.url}>{hero.primaryAction.label}</Button>
+      <Button href={hero.secondaryAction.url} variant="ghost">{hero.secondaryAction.label}</Button>
     </div>
   </div>
   <aside class="surface telemetry" aria-label="Studio telemetry">
-    <p class="kicker">{homepage.telemetryEyebrow}</p>
+    <p class="kicker">{hero.telemetryEyebrow}</p>
     <dl>
-      {homepage.telemetry.map((item) => <div><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
+      {hero.telemetry.map((item) => <div><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
     </dl>
   </aside>
 </section>

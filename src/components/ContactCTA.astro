@@ -1,5 +1,8 @@
 ---
-import { contactCta, site } from '../data/site';
+import { getSiteContent } from '../lib/content';
+
+const site = await getSiteContent();
+const contactCta = site.contactCta;
 import Button from './Button.astro';
 ---
 <section class="contact-cta container surface">

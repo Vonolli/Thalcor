@@ -1,0 +1,33 @@
+name: THALCOR
+title: THALCOR — A Private Venture Studio for Impossible Ideas
+description: THALCOR is a private venture studio and idea lab building frontier concepts across AI, design, media, hardware, consumer products, and experimental startups.
+url: https://thalcor.ca
+ogImage: /assets/images/og-image.svg
+email: contact@thalcor.ca
+tagline: A private venture studio for impossible ideas.
+brandLogo: /assets/logos/thalcor-mark.svg
+contactPage:
+  title: Contact
+  description: Contact THALCOR for collaborations, investment conversations, contractor partnerships, and serious project inquiries.
+  eyebrow: Contact
+  heading: Open a serious channel.
+  intro: For collaborations, investment conversations, contractor partnerships, or serious project inquiries.
+  panelTitle: Public channel
+  panelText: Include the project or lab area that interests you, what you can contribute, and what type of proof, capital, partnership, or execution path you want to discuss.
+contactCta:
+  eyebrow: Contact
+  heading: Bring a serious signal.
+  text: For collaborations, investment conversations, contractor partnerships, or serious project inquiries.
+  buttonLabel: Open contact channel
+navigation:
+  - label: Projects
+    url: /projects/
+  - label: Labs
+    url: /labs/
+  - label: Philosophy
+    url: /philosophy/
+  - label: Contact
+    url: /contact/
+footer:
+  eyebrow: THALCOR / proof before scale
+  text: Ambitious concepts become proof, then products, companies, worlds, and systems.
