@@ -1,11 +1,14 @@
 name: THALCOR
-title: THALCOR — A Private Venture Studio for Impossible Ideas
-description: THALCOR is a private venture studio and idea lab building frontier concepts across AI, design, media, hardware, consumer products, and experimental startups.
+title: THALCOR — Moonshot Studio & R&D Lab
+description: THALCOR turns concepts into executable missions that can be funded, tested, and deployed to help build the future we dream of.
 url: https://thalcor.ca
 ogImage: /assets/images/og-image.svg
 email: contact@thalcor.ca
-tagline: A private venture studio for impossible ideas.
-brandLogo: /assets/logos/thalcor-mark.svg
+tagline: Moonshot studio and R&D lab for executable missions.
+brandLogo: /media/logos/thalcor-wordmark.svg
+contactButton:
+  label: CONTACT US
+  url: /contact/
 contactPage:
   title: Contact
   description: Contact THALCOR for collaborations, investment conversations, contractor partnerships, and serious project inquiries.
@@ -20,14 +23,16 @@ contactCta:
   text: For collaborations, investment conversations, contractor partnerships, or serious project inquiries.
   buttonLabel: Open contact channel
 navigation:
-  - label: Projects
+  - label: MISSIONS
     url: /projects/
-  - label: Labs
+  - label: STUDIO
+    url: /venture-studio/
+  - label: LAB
     url: /labs/
-  - label: Philosophy
+  - label: PLATFORMS
+    url: /programs/
+  - label: ABOUT
     url: /philosophy/
-  - label: Contact
-    url: /contact/
 footer:
-  eyebrow: THALCOR / proof before scale
-  text: Ambitious concepts become proof, then products, companies, worlds, and systems.
+  eyebrow: THALCOR / moonshot studio
+  text: Building executable missions for a brighter future.

@@ -1,0 +1,7 @@
+---
+interface Props { text?: string; small?: boolean; }
+const { text = 'THALCOR', small = false } = Astro.props;
+---
+<span class:list={["wordmark", { "wordmark--small": small }]} aria-label={text}>
+  <span>TH</span><span class="wordmark__a">A</span><span>LCOR</span>
+</span>

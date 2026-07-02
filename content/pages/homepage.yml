@@ -1,56 +1,31 @@
-seoTitle: THALCOR — A Private Venture Studio for Impossible Ideas
-seoDescription: THALCOR is a private venture studio and idea lab building frontier concepts across AI, design, media, hardware, consumer products, and experimental startups.
+seoTitle: THALCOR — Moonshot Studio & R&D Lab
+seoDescription: THALCOR turns concepts into executable missions that can be funded, tested, and deployed to help build the future we dream of.
 hero:
-  eyebrow: Private venture studio / idea lab
-  headline: THALCOR
-  subheadline: A private venture studio for impossible ideas.
-  supporting: We build, test, and compound frontier concepts across AI, design, media, hardware, and consumer products.
-  primaryAction:
-    label: View Projects
-    url: /projects/
-  secondaryAction:
-    label: Enter the Lab
-    url: /labs/
-  telemetryEyebrow: Studio frame
-  telemetry:
-    - label: Mode
-      value: Founder-led lab
-    - label: Output
-      value: Proof artifacts
-    - label: Fields
-      value: AI / Media / Hardware
-    - label: Thesis
-      value: Compound signal
-manifesto:
-  eyebrow: Manifesto
-  title: Ideas become experiments. Experiments become proof. Proof becomes leverage.
-  intro: THALCOR is a founder-led studio for concepts too strange, too early, or too cross-disciplinary to fit a normal company shape on day one. We turn raw signal into prototypes, artifacts, field notes, brands, systems, and venture paths with compounding value.
-  paragraphs:
-    - Founder-led means the studio keeps taste, technical curiosity, and operational discipline in the same room. THALCOR is built to move from private thinking to public proof without losing the original signal.
-    - 'Every serious idea earns a file, a prototype path, and a question: can this become leverage?'
-featuredProjects:
-  eyebrow: Featured projects
-  title: Project files with future gravity.
-  intro: 'Each project is treated like a dossier: a named thesis, a proof path, and an evolving system of artifacts that can become software, media, physical products, or standalone companies.'
+  title: THALCOR
+  subtitle: MOONSHOT STUDIO & R&D LAB
+  body: |-
+    Thalcor turns concepts into executable missions
+    that can be funded, tested, and deployed to help
+    build the future we dream of.
+  backgroundImage: /media/images/hero-atmosphere.jpg
+footer:
+  horizonImage: /media/images/footer-horizon.jpg
+  text: Building executable missions for a brighter future.
+featuredCategories:
+  - moonshot-missions
+  - creative-worldbuilding
+  - systems-platforms
+  - frontier-research
+
 process:
   eyebrow: Operating model
-  title: A quiet machine for moving from impossible to investable.
+  title: From impossible to investable.
   steps:
     - title: Imagine
-      text: Hunt for strange intersections, hidden demand, future behaviors, and ideas with enough myth and utility to deserve a file.
+      text: Hunt for strange intersections, hidden demand, future behaviors, and ideas with enough myth and utility to deserve a mission.
     - title: Prototype
-      text: 'Turn abstract concepts into artifacts: interfaces, renders, formulas, landing pages, prompts, videos, mockups, tools, and field tests.'
+      text: Turn abstract concepts into artifacts, interfaces, renders, landing pages, prompts, videos, tools, and field tests.
     - title: Validate
-      text: Read the signal through behavior, taste, feasibility, supplier clarity, cost, technical leverage, and the quality of people it attracts.
+      text: Read the signal through behavior, taste, feasibility, cost, technical leverage, and the quality of people it attracts.
     - title: Compound
-      text: Convert proof into reusable systems, brands, IP, datasets, operating loops, partnerships, and venture paths with increasing gravity.
-labs:
-  eyebrow: Internal systems
-  title: The lab is more than a list of ideas.
-  intro: Behind the public projects are scoring frameworks, research artifacts, prototype rituals, supplier maps, prompt systems, creative experiments, and decision tools that help choose what deserves oxygen.
-  panelEyebrow: Controlled chaos
-  panelTitle: Research, artifacts, and operating loops decide what survives.
-  items:
-    - Idea scoring matrices for originality, feasibility, defensibility, capital fit, and founder energy.
-    - Prototype briefs that turn abstract concepts into visible proof before major spend.
-    - Reusable creative, technical, supplier, and AI systems that make each experiment smarter than the last.
+      text: Convert proof into reusable systems, brands, IP, datasets, operating loops, partnerships, and venture paths.

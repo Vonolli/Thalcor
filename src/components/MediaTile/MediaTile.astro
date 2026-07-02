@@ -1,0 +1,14 @@
+---
+interface Item { title: string; subtitle?: string; image: string; alt?: string; href: string; }
+interface Props { item: Item; shape: 'circle' | 'triangle' | 'square' | 'hexagon'; eager?: boolean; }
+const { item, shape, eager = false } = Astro.props;
+---
+<a class:list={["media-tile", `media-tile--${shape}`]} href={item.href} aria-label={item.title}>
+  <span class="media-tile__frame">
+    <span class="media-tile__visual">
+      <img src={item.image} alt={item.alt ?? ''} loading={eager ? 'eager' : 'lazy'} onerror="this.closest('.media-tile').classList.add('is-placeholder')" />
+    </span>
+  </span>
+  <span class="media-tile__label">{item.title}</span>
+  {item.subtitle && <span class="media-tile__subtitle">{item.subtitle}</span>}
+</a>

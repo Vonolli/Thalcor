@@ -1,0 +1,17 @@
+---
+import MediaTile from './MediaTile/MediaTile.astro';
+interface Item { title: string; subtitle?: string; image: string; alt?: string; href: string; order: number; visible: boolean; }
+interface Category { id: string; title: string; description: string; shapeType: 'circle'|'triangle'|'square'|'hexagon'; iconShape: string; order: number; visible: boolean; items: Item[]; }
+const { category } = Astro.props as { category: Category };
+const items = category.items.filter((item) => item.visible).sort((a,b) => a.order - b.order).slice(0,5);
+---
+<section class="mission-panel" id={category.id} aria-labelledby={`${category.id}-title`}>
+  <div class="mission-panel__intro">
+    <span class:list={["shape-icon", `shape-icon--${category.iconShape || category.shapeType}`]}></span>
+    <h2 id={`${category.id}-title`}>{category.title}</h2>
+    <p>{category.description}</p>
+  </div>
+  <div class="mission-panel__rail">
+    {items.map((item, index) => <MediaTile item={item} shape={category.shapeType} eager={index === 0} />)}
+  </div>
+</section>

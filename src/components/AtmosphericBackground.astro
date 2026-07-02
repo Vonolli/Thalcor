@@ -1,0 +1,9 @@
+---
+interface Props { heroImage?: string; horizonImage?: string; }
+const { heroImage, horizonImage } = Astro.props;
+---
+<div class="atmosphere" aria-hidden="true">
+  <div class="atmosphere__hero" style={heroImage ? `--hero-image: url('${heroImage}')` : ''}></div>
+  <div class="atmosphere__orb"></div>
+  <div class="atmosphere__horizon" style={horizonImage ? `--horizon-image: url('${horizonImage}')` : ''}></div>
+</div>
