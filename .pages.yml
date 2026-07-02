@@ -3,26 +3,26 @@
 media:
   - name: images
     label: Images
-    input: public/assets/images
-    output: /assets/images
+    input: public/media/images
+    output: /media/images
     categories: [image]
     rename: safe
   - name: videos
     label: Videos
-    input: public/assets/videos
-    output: /assets/videos
+    input: public/media/videos
+    output: /media/videos
     categories: [video]
     rename: safe
   - name: logos
     label: Logos
-    input: public/assets/logos
-    output: /assets/logos
+    input: public/media/logos
+    output: /media/logos
     categories: [image]
     rename: safe
   - name: documents
     label: Documents
-    input: public/assets/documents
-    output: /assets/documents
+    input: public/media/documents
+    output: /media/documents
     categories: [document]
     rename: safe
 
@@ -33,63 +33,35 @@ content:
     path: content/pages/homepage.yml
     format: yaml
     fields:
-      - name: seoTitle
-        label: SEO title
-        type: string
-        required: true
-      - name: seoDescription
-        label: SEO description
-        type: text
-        required: true
+      - { name: seoTitle, label: SEO title, type: string, required: true }
+      - { name: seoDescription, label: SEO description, type: text, required: true }
       - name: hero
         label: Hero
         type: object
         fields:
-          - { name: eyebrow, label: Eyebrow, type: string, required: true }
-          - { name: headline, label: Headline, type: string, required: true }
-          - { name: subheadline, label: Subheadline, type: text, required: true }
-          - { name: supporting, label: Supporting copy, type: text, required: true }
-          - name: primaryAction
-            label: Primary CTA
-            type: object
-            fields:
-              - { name: label, label: Button text, type: string, required: true }
-              - { name: url, label: Link, type: string, required: true }
-          - name: secondaryAction
-            label: Secondary CTA
-            type: object
-            fields:
-              - { name: label, label: Button text, type: string, required: true }
-              - { name: url, label: Link, type: string, required: true }
-          - { name: telemetryEyebrow, label: Telemetry eyebrow, type: string, required: true }
-          - name: telemetry
-            label: Telemetry rows
-            type: object
-            list: true
-            fields:
-              - { name: label, label: Label, type: string, required: true }
-              - { name: value, label: Value, type: string, required: true }
-      - name: manifesto
-        label: Manifesto section
+          - { name: title, label: Hero wordmark/title, type: string, required: true }
+          - { name: subtitle, label: Subtitle, type: string, required: true }
+          - { name: body, label: Body copy, type: text, required: true }
+          - name: backgroundImage
+            label: Hero atmosphere image
+            type: image
+            options: { media: images }
+      - name: footer
+        label: Footer horizon
         type: object
         fields:
-          - { name: eyebrow, label: Eyebrow, type: string, required: true }
-          - { name: title, label: Title, type: string, required: true }
-          - { name: intro, label: Introduction, type: text, required: true }
-          - { name: paragraphs, label: Panel paragraphs, type: text, list: true, required: true }
-      - name: featuredProjects
-        label: Featured projects section
-        type: object
-        fields:
-          - { name: eyebrow, label: Eyebrow, type: string, required: true }
-          - { name: title, label: Title, type: string, required: true }
-          - { name: intro, label: Introduction, type: text, required: true }
+          - name: horizonImage
+            label: Lower horizon image
+            type: image
+            options: { media: images }
+          - { name: text, label: Footer text, type: text, required: true }
+      - { name: featuredCategories, label: Featured category IDs, type: string, list: true, required: true }
       - name: process
-        label: Process section
+        label: Venture studio process copy
         type: object
         fields:
-          - { name: eyebrow, label: Eyebrow, type: string, required: true }
-          - { name: title, label: Title, type: string, required: true }
+          - { name: eyebrow, label: Eyebrow, type: string }
+          - { name: title, label: Title, type: string }
           - name: steps
             label: Process steps
             type: object
@@ -97,114 +69,54 @@ content:
             fields:
               - { name: title, label: Title, type: string, required: true }
               - { name: text, label: Description, type: text, required: true }
-      - name: labs
-        label: Labs section
-        type: object
-        fields:
-          - { name: eyebrow, label: Eyebrow, type: string, required: true }
-          - { name: title, label: Title, type: string, required: true }
-          - { name: intro, label: Introduction, type: text, required: true }
-          - { name: panelEyebrow, label: Panel eyebrow, type: string, required: true }
-          - { name: panelTitle, label: Panel title, type: string, required: true }
-          - { name: items, label: Panel items, type: text, list: true, required: true }
 
-  - name: project_archive
-    label: Project archive copy
+  - name: mission_categories
+    label: Mission categories and homepage tiles
     type: file
-    path: content/pages/projects.yml
+    path: content/missions/missions.yml
     format: yaml
     fields:
-      - { name: seoTitle, label: SEO title, type: string, required: true }
-      - { name: seoDescription, label: SEO description, type: text, required: true }
-      - name: hero
-        label: Archive hero
+      - name: categories
+        label: Categories
         type: object
+        list: true
         fields:
-          - { name: eyebrow, label: Eyebrow, type: string, required: true }
+          - { name: id, label: ID, type: string, required: true }
           - { name: title, label: Title, type: string, required: true }
           - { name: description, label: Description, type: text, required: true }
-      - name: filters
-        label: Filter labels
-        type: object
-        fields:
-          - { name: allTitle, label: All projects heading, type: string, required: true }
-          - { name: allSignalLabel, label: Signal sort label, type: string, required: true }
-          - { name: allAlphabeticalLabel, label: Alphabetical sort label, type: string, required: true }
-          - { name: statusTitle, label: Status heading, type: string, required: true }
-          - { name: categoryTitle, label: Category heading, type: string, required: true }
-      - name: detail
-        label: Project detail labels
-        type: object
-        fields:
-          - { name: dossierLabel, label: Dossier label, type: string, required: true }
-          - { name: statusLabel, label: Status label, type: string, required: true }
-          - { name: categoryLabel, label: Category label, type: string, required: true }
-          - { name: clearanceLabel, label: Clearance label, type: string, required: true }
-          - { name: featuredLabel, label: Featured value, type: string, required: true }
-          - { name: archiveLabel, label: Archive value, type: string, required: true }
-          - { name: heroMediaLabel, label: Hero media label, type: string, required: true }
-          - { name: fileNotesLabel, label: File notes heading, type: string, required: true }
-          - { name: fileNotes, label: File notes, type: text, required: true }
-          - { name: externalLinkLabel, label: External link text, type: string, required: true }
-          - { name: videoLinkLabel, label: Video link text, type: string, required: true }
-          - { name: documentLinkLabel, label: Document link text, type: string, required: true }
-          - { name: backLabel, label: Back button text, type: string, required: true }
-
-  - name: projects
-    label: Projects
-    type: collection
-    path: content/projects
-    format: yaml-frontmatter
-    filename: "{primary}.md"
-    view:
-      primary: title
-      fields: [status, category, featured, order]
-      sort: order
-      order: asc
-    fields:
-      - { name: title, label: Project title, type: string, required: true }
-      - { name: tagline, label: Card description, type: text, required: true }
-      - { name: status, label: Status, type: string, required: true }
-      - { name: category, label: Category, type: string, required: true }
-      - { name: featured, label: Feature on homepage, type: boolean, default: false }
-      - name: heroImage
-        label: Hero image
-        type: image
-        required: true
-        options: { media: images }
-      - name: previewImage
-        label: Card image
-        type: image
-        required: true
-        options: { media: images }
-      - name: logoImage
-        label: Project logo
-        type: image
-        options: { media: logos }
-      - name: heroVideo
-        label: Hero video override
-        type: file
-        options: { media: videos }
-      - name: videoPath
-        label: Supporting video
-        type: file
-        options: { media: videos }
-      - name: documentPath
-        label: Supporting document
-        type: file
-        options: { media: documents }
-      - { name: externalUrl, label: External link, type: string }
-      - { name: order, label: Sort order, type: number, required: true }
-      - name: body
-        label: Project description
-        type: rich-text
-        required: true
-        options:
-          format: markdown
-          media: images
+          - name: shapeType
+            label: Tile shape type
+            type: select
+            required: true
+            options:
+              values: [circle, triangle, square, hexagon]
+          - name: iconShape
+            label: Intro icon shape
+            type: select
+            required: true
+            options:
+              values: [circle, triangle, square, hexagon]
+          - { name: order, label: Order, type: number, required: true }
+          - { name: visible, label: Visible, type: boolean, default: true }
+          - name: items
+            label: Tiles
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title / label, type: string, required: true }
+              - { name: subtitle, label: Optional supporting text, type: text }
+              - name: image
+                label: Tile image
+                type: image
+                required: true
+                options: { media: images }
+              - { name: alt, label: Alt text, type: string }
+              - { name: href, label: Link, type: string, required: true }
+              - { name: order, label: Order, type: number, required: true }
+              - { name: visible, label: Visible, type: boolean, default: true }
 
   - name: site_settings
-    label: Site settings
+    label: Site settings, navigation, logo
     type: file
     path: content/settings/site.yml
     format: yaml
@@ -221,38 +133,24 @@ content:
       - { name: email, label: Contact email, type: string, required: true }
       - { name: tagline, label: Brand tagline, type: text, required: true }
       - name: brandLogo
-        label: Brand logo
+        label: Brand logo / wordmark upload path
         type: image
-        required: true
         options: { media: logos }
-      - name: contactPage
-        label: Contact page
+      - name: contactButton
+        label: Contact button
         type: object
         fields:
-          - { name: title, label: SEO title, type: string, required: true }
-          - { name: description, label: SEO description, type: text, required: true }
-          - { name: eyebrow, label: Eyebrow, type: string, required: true }
-          - { name: heading, label: Heading, type: string, required: true }
-          - { name: intro, label: Introduction, type: text, required: true }
-          - { name: panelTitle, label: Panel title, type: string, required: true }
-          - { name: panelText, label: Panel copy, type: text, required: true }
-      - name: contactCta
-        label: Reusable contact CTA
-        type: object
-        fields:
-          - { name: eyebrow, label: Eyebrow, type: string, required: true }
-          - { name: heading, label: Heading, type: string, required: true }
-          - { name: text, label: Description, type: text, required: true }
-          - { name: buttonLabel, label: Button text, type: string, required: true }
+          - { name: label, label: Label, type: string, required: true }
+          - { name: url, label: Link, type: string, required: true }
       - name: navigation
-        label: Navigation
+        label: Header navigation
         type: object
         list: true
         fields:
           - { name: label, label: Label, type: string, required: true }
           - { name: url, label: Link, type: string, required: true }
       - name: footer
-        label: Footer
+        label: Fallback footer
         type: object
         fields:
           - { name: eyebrow, label: Eyebrow, type: string, required: true }

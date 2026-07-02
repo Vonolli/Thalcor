@@ -1,73 +1,23 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AtmosphericBackground from '../components/AtmosphericBackground.astro';
 import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import ContactCTA from '../components/ContactCTA.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { getHomepageContent } from '../lib/content';
+import MissionCategoryPanel from '../components/MissionCategoryPanel.astro';
+import FooterHorizon from '../components/FooterHorizon.astro';
+import { getHomepageContent, getMissionsContent } from '../lib/content';
 
 const homepage = await getHomepageContent();
-const featuredProjects = (await getCollection('projects'))
-  .filter((project) => project.data.featured)
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 5);
+const missions = await getMissionsContent();
+const categoryOrder = new Map(homepage.featuredCategories.map((id, index) => [id, index]));
+const categories = missions.categories
+  .filter((category) => category.visible && (categoryOrder.size === 0 || categoryOrder.has(category.id)))
+  .sort((a, b) => (categoryOrder.get(a.id) ?? a.order) - (categoryOrder.get(b.id) ?? b.order));
 ---
-<BaseLayout title={homepage.seoTitle} description={homepage.seoDescription}>
-  <Hero />
-
-  <Section eyebrow={homepage.manifesto.eyebrow} title={homepage.manifesto.title} intro={homepage.manifesto.intro}>
-    <div class="manifesto-panel surface">
-      {homepage.manifesto.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-    </div>
-  </Section>
-
-  <Section eyebrow={homepage.featuredProjects.eyebrow} title={homepage.featuredProjects.title} intro={homepage.featuredProjects.intro}>
-    <div class="featured-projects">
-      {featuredProjects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </Section>
-
-  <Section eyebrow={homepage.process.eyebrow} title={homepage.process.title}>
-    <div class="process-grid">
-      {homepage.process.steps.map((step, index) => (
-        <article class="surface process-card">
-          <span>{String(index + 1).padStart(2, '0')}</span>
-          <h3>{step.title}</h3>
-          <p>{step.text}</p>
-        </article>
-      ))}
-    </div>
-  </Section>
-
-  <Section eyebrow={homepage.labs.eyebrow} title={homepage.labs.title} intro={homepage.labs.intro}>
-    <div class="labs-panel surface">
-      <div>
-        <p class="kicker">{homepage.labs.panelEyebrow}</p>
-        <h3>{homepage.labs.panelTitle}</h3>
-      </div>
-      <ul>
-        {homepage.labs.items.map((item) => <li>{item}</li>)}
-      </ul>
-    </div>
-  </Section>
-
-  <ContactCTA />
+<BaseLayout title={homepage.seoTitle} description={homepage.seoDescription} image={homepage.hero.backgroundImage} hideFooter>
+  <AtmosphericBackground heroImage={homepage.hero.backgroundImage} horizonImage={homepage.footer.horizonImage} />
+  <Hero hero={homepage.hero} />
+  <div class="container mission-stack" aria-label="Mission categories">
+    {categories.map((category) => <MissionCategoryPanel category={category} />)}
+  </div>
+  <FooterHorizon text={homepage.footer.text} />
 </BaseLayout>
-<style>
-  .manifesto-panel { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 4vw, 3rem); padding: clamp(1.25rem, 4vw, 2.4rem); }
-  .manifesto-panel p { margin: 0; color: var(--color-silver); font-size: clamp(1rem, 1.6vw, 1.18rem); }
-  .featured-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
-  .featured-projects :global(.project-card:first-child) { grid-column: span 2; min-height: 560px; }
-  .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
-  .process-card { padding: 1.15rem; min-height: 270px; }
-  .process-card span { color: var(--color-accent); font-size: .72rem; letter-spacing: .18em; }
-  .process-card h3 { margin-top: 2.2rem; }
-  .labs-panel { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.2rem, 4vw, 3rem); padding: clamp(1.25rem, 4vw, 2.4rem); }
-  .labs-panel h3 { max-width: 520px; font-size: clamp(1.65rem, 3vw, 2.7rem); letter-spacing: -.04em; }
-  .labs-panel ul { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
-  .labs-panel li { color: var(--color-silver); line-height: 1.7; border-top: 1px solid var(--color-line); padding-top: 1rem; }
-  @media (max-width: 980px) { .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 760px) { .manifesto-panel, .labs-panel, .featured-projects, .featured-projects :global(.project-card:first-child) { grid-template-columns: 1fr; grid-column: auto; } }
-  @media (max-width: 620px) { .process-grid { grid-template-columns: 1fr; } }
-</style>

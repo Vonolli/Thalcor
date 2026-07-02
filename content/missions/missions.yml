@@ -1,0 +1,83 @@
+categories:
+  - id: moonshot-missions
+    title: MOONSHOT MISSIONS
+    description: High-impact missions for a better future.
+    shapeType: circle
+    iconShape: circle
+    order: 1
+    visible: true
+    items:
+      - title: WILDFIRE INTELLIGENCE
+        subtitle: Predictive resilience systems for fire-prone terrain.
+        image: /media/images/wildfire-intelligence.jpg
+        alt: Atmospheric pale-blue wildfire intelligence mission placeholder
+        href: /projects/
+        order: 1
+        visible: true
+      - title: FUTURE HARDWARE
+        subtitle: Physical tools for frontier field operations.
+        image: /media/images/future-hardware.jpg
+        alt: Pale futuristic hardware mission placeholder
+        href: /projects/
+        order: 2
+        visible: true
+      - title: AUTONOMOUS SYSTEMS
+        subtitle: Robotic and agentic systems for safer infrastructure.
+        image: /media/images/autonomous-systems.jpg
+        alt: Pale autonomous systems mission placeholder
+        href: /projects/
+        order: 3
+        visible: true
+      - title: ENVIRONMENTAL RESILIENCE
+        subtitle: Adaptive systems for climate and habitat stability.
+        image: /media/images/environmental-resilience.jpg
+        alt: Pale environmental resilience mission placeholder
+        href: /projects/
+        order: 4
+        visible: true
+      - title: ADVANCED INFRASTRUCTURE
+        subtitle: Better foundations for cities, energy, and logistics.
+        image: /media/images/advanced-infrastructure.jpg
+        alt: Pale advanced infrastructure mission placeholder
+        href: /projects/
+        order: 5
+        visible: true
+  - id: creative-worldbuilding
+    title: CREATIVE & WORLDBUILDING
+    description: Stories, worlds, and ideas without limits.
+    shapeType: triangle
+    iconShape: triangle
+    order: 2
+    visible: true
+    items:
+      - { title: CINEMATIC WORLDBUILDING, subtitle: Future-facing worlds with emotional gravity., image: /media/images/cinematic-worldbuilding.jpg, alt: Pale cinematic worldbuilding placeholder, href: /projects/, order: 1, visible: true }
+      - { title: GAMES & INTERACTIVE, subtitle: Playable systems and exploratory interfaces., image: /media/images/games-interactive.jpg, alt: Pale games and interactive placeholder, href: /projects/, order: 2, visible: true }
+      - { title: VISUAL STORYTELLING, subtitle: Editorial images, symbols, and myth systems., image: /media/images/visual-storytelling.jpg, alt: Pale visual storytelling placeholder, href: /projects/, order: 3, visible: true }
+      - { title: IMAGINATIVE CONCEPTS, subtitle: Strange ideas shaped into visible proof., image: /media/images/imaginative-concepts.jpg, alt: Pale imaginative concepts placeholder, href: /projects/, order: 4, visible: true }
+      - { title: CREATIVE IP, subtitle: Durable intellectual property for future worlds., image: /media/images/creative-ip.jpg, alt: Pale creative IP placeholder, href: /projects/, order: 5, visible: true }
+  - id: systems-platforms
+    title: SYSTEMS & PLATFORMS
+    description: Tools and platforms that scale impact.
+    shapeType: square
+    iconShape: square
+    order: 3
+    visible: true
+    items:
+      - { title: AI SYSTEMS, subtitle: Intelligent workflows for research and execution., image: /media/images/ai-systems.jpg, alt: Pale AI systems dashboard placeholder, href: /projects/, order: 1, visible: true }
+      - { title: DEVELOPER TOOLS, subtitle: Builder utilities and technical accelerants., image: /media/images/developer-tools.jpg, alt: Pale developer tools dashboard placeholder, href: /projects/, order: 2, visible: true }
+      - { title: PLATFORM INTERFACES, subtitle: Elegant interfaces for operational clarity., image: /media/images/platform-interfaces.jpg, alt: Pale platform interface placeholder, href: /projects/, order: 3, visible: true }
+      - { title: RESEARCH PLATFORMS, subtitle: Structured knowledge systems and lab tooling., image: /media/images/research-platforms.jpg, alt: Pale research platform placeholder, href: /projects/, order: 4, visible: true }
+      - { title: PRODUCT SYSTEMS, subtitle: Repeatable product engines with strong taste., image: /media/images/product-systems.jpg, alt: Pale product system placeholder, href: /projects/, order: 5, visible: true }
+  - id: frontier-research
+    title: FRONTIER RESEARCH
+    description: Deep science and bold exploration at the edge.
+    shapeType: hexagon
+    iconShape: hexagon
+    order: 4
+    visible: true
+    items:
+      - { title: EXPERIMENTAL ENERGY, subtitle: New energy concepts and infrastructure paths., image: /media/images/experimental-energy.jpg, alt: Pale experimental energy placeholder, href: /projects/, order: 1, visible: true }
+      - { title: BIOSYSTEMS, subtitle: Living systems, resilience, and biological futures., image: /media/images/biosystems.jpg, alt: Pale biosystems placeholder, href: /projects/, order: 2, visible: true }
+      - { title: MATERIALS, subtitle: Advanced matter for future tools and habitats., image: /media/images/materials.jpg, alt: Pale materials research placeholder, href: /projects/, order: 3, visible: true }
+      - { title: HUMAN INTERFACE, subtitle: Interfaces between people, machines, and meaning., image: /media/images/human-interface.jpg, alt: Pale human interface placeholder, href: /projects/, order: 4, visible: true }
+      - { title: VENTURE CONCEPTS, subtitle: Deep research translated into investable paths., image: /media/images/venture-concepts.jpg, alt: Pale venture concepts placeholder, href: /projects/, order: 5, visible: true }

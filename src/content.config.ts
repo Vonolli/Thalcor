@@ -17,6 +17,7 @@ const site = defineCollection({
     email: z.string().email(),
     tagline: z.string(),
     brandLogo: z.string(),
+    contactButton: linkSchema.optional(),
     contactPage: z.object({
       title: z.string(),
       description: z.string(),
@@ -46,39 +47,45 @@ const homepage = defineCollection({
     seoTitle: z.string(),
     seoDescription: z.string(),
     hero: z.object({
-      eyebrow: z.string(),
-      headline: z.string(),
-      subheadline: z.string(),
-      supporting: z.string(),
-      primaryAction: linkSchema,
-      secondaryAction: linkSchema,
-      telemetryEyebrow: z.string(),
-      telemetry: z.array(z.object({ label: z.string(), value: z.string() })),
-    }),
-    manifesto: z.object({
-      eyebrow: z.string(),
       title: z.string(),
-      intro: z.string(),
-      paragraphs: z.array(z.string()),
+      subtitle: z.string(),
+      body: z.string(),
+      backgroundImage: z.string().optional(),
     }),
-    featuredProjects: z.object({
-      eyebrow: z.string(),
-      title: z.string(),
-      intro: z.string(),
+    footer: z.object({
+      horizonImage: z.string().optional(),
+      text: z.string(),
     }),
+    featuredCategories: z.array(z.string()).default([]),
     process: z.object({
-      eyebrow: z.string(),
-      title: z.string(),
+      eyebrow: z.string().optional(),
+      title: z.string().optional(),
       steps: z.array(z.object({ title: z.string(), text: z.string() })),
-    }),
-    labs: z.object({
-      eyebrow: z.string(),
+    }).optional(),
+  }),
+});
+
+const missions = defineCollection({
+  loader: glob({ pattern: 'missions.yml', base: './content/missions' }),
+  schema: z.object({
+    categories: z.array(z.object({
+      id: z.string(),
       title: z.string(),
-      intro: z.string(),
-      panelEyebrow: z.string(),
-      panelTitle: z.string(),
-      items: z.array(z.string()),
-    }),
+      description: z.string(),
+      shapeType: z.enum(['circle', 'triangle', 'square', 'hexagon']),
+      iconShape: z.enum(['circle', 'triangle', 'square', 'hexagon']),
+      order: z.number().default(999),
+      visible: z.boolean().default(true),
+      items: z.array(z.object({
+        title: z.string(),
+        subtitle: z.string().optional(),
+        image: z.string(),
+        alt: z.string().optional(),
+        href: z.string(),
+        order: z.number().default(999),
+        visible: z.boolean().default(true),
+      })),
+    })),
   }),
 });
 
@@ -136,4 +143,4 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { site, homepage, projectPage, projects };
+export const collections = { site, homepage, missions, projectPage, projects };

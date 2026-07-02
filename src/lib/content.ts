@@ -17,3 +17,9 @@ export async function getProjectPageContent() {
   if (!entry) throw new Error('Missing content/pages/projects.yml');
   return entry.data;
 }
+
+export async function getMissionsContent() {
+  const entry = await getEntry('missions', 'missions');
+  if (!entry) throw new Error('Missing content/missions/missions.yml');
+  return entry.data;
+}

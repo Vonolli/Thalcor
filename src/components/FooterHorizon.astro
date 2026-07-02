@@ -1,0 +1,11 @@
+---
+import GoldDivider from './GoldDivider.astro';
+import Wordmark from './Wordmark.astro';
+const { text = '' } = Astro.props;
+---
+<section class="footer-horizon" aria-label="Thalcor horizon">
+  <GoldDivider />
+  <div class="footer-horizon__mark" aria-hidden="true">T</div>
+  <Wordmark small />
+  {text && <p>{text}</p>}
+</section>
