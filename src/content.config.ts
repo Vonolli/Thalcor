@@ -51,6 +51,7 @@ const homepage = defineCollection({
       subtitle: z.string(),
       body: z.string(),
       backgroundImage: z.string().optional(),
+      backgroundVideo: z.string().optional(),
     }),
     footer: z.object({
       horizonImage: z.string().optional(),

@@ -46,6 +46,10 @@ content:
             label: Hero atmosphere image
             type: image
             options: { media: images }
+          - name: backgroundVideo
+            label: Optional hero atmosphere video
+            type: file
+            options: { media: videos }
       - name: footer
         label: Footer horizon
         type: object

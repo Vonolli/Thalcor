@@ -1,9 +1,14 @@
 ---
-import MediaTile from './MediaTile/MediaTile.astro';
+import CircleMediaTile from './CircleMediaTile.astro';
+import TriangleMediaTile from './TriangleMediaTile.astro';
+import SquareMediaTile from './SquareMediaTile.astro';
+import HexagonMediaTile from './HexagonMediaTile.astro';
 interface Item { title: string; subtitle?: string; image: string; alt?: string; href: string; order: number; visible: boolean; }
 interface Category { id: string; title: string; description: string; shapeType: 'circle'|'triangle'|'square'|'hexagon'; iconShape: string; order: number; visible: boolean; items: Item[]; }
 const { category } = Astro.props as { category: Category };
-const items = category.items.filter((item) => item.visible).sort((a,b) => a.order - b.order).slice(0,5);
+const items = category.items.filter((item) => item.visible).sort((a,b) => a.order - b.order);
+const tileComponents = { circle: CircleMediaTile, triangle: TriangleMediaTile, square: SquareMediaTile, hexagon: HexagonMediaTile };
+const TileComponent = tileComponents[category.shapeType];
 ---
 <section class="mission-panel" id={category.id} aria-labelledby={`${category.id}-title`}>
   <div class="mission-panel__intro">
@@ -12,6 +17,6 @@ const items = category.items.filter((item) => item.visible).sort((a,b) => a.orde
     <p>{category.description}</p>
   </div>
   <div class="mission-panel__rail">
-    {items.map((item, index) => <MediaTile item={item} shape={category.shapeType} eager={index === 0} />)}
+    {items.map((item, index) => <TileComponent item={item} eager={index === 0} />)}
   </div>
 </section>

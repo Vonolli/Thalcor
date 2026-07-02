@@ -1,0 +1,5 @@
+---
+import MediaTile from './MediaTile/MediaTile.astro';
+const { item, eager = false } = Astro.props;
+---
+<MediaTile item={item} shape="circle" eager={eager} />

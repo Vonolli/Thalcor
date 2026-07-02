@@ -1,10 +1,11 @@
 ---
 import GoldDivider from './GoldDivider.astro';
 import Wordmark from './Wordmark.astro';
-interface Props { hero: { title: string; subtitle: string; body: string; }; }
+interface Props { hero: { title: string; subtitle: string; body: string; backgroundVideo?: string; }; }
 const { hero } = Astro.props;
 ---
 <section class="home-hero" aria-labelledby="hero-title">
+  {hero.backgroundVideo && <video class="home-hero__video" src={hero.backgroundVideo} autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>}
   <div class="container home-hero__inner">
     <h1 id="hero-title"><Wordmark text={hero.title} /></h1>
     <p class="home-hero__subtitle">{hero.subtitle}</p>

@@ -8,6 +8,7 @@ hero:
     that can be funded, tested, and deployed to help
     build the future we dream of.
   backgroundImage: /media/images/hero-atmosphere.jpg
+  backgroundVideo: ""
 footer:
   horizonImage: /media/images/footer-horizon.jpg
   text: Building executable missions for a brighter future.

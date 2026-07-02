@@ -9,7 +9,7 @@ const contact = site.contactButton ?? { label: 'CONTACT US', url: '/contact/' };
 <header class="site-header">
   <div class="container header-shell">
     <a class="brand" href="/" aria-label={`${site.name} home`}>
-      <Wordmark small />
+      {site.brandLogo ? <img class="brand-logo" src={site.brandLogo} alt={`${site.name} logo`} /> : <Wordmark small />}
     </a>
     <button class="menu-button" type="button" aria-controls="primary-nav" aria-expanded="false">Menu</button>
     <nav id="primary-nav" aria-label="Primary navigation">
