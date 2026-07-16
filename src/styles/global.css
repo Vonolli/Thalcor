@@ -63,3 +63,86 @@
 .capability-grid .mini-card { min-height: 96px; align-items: center; }
 .milestone-card { text-align: center; max-width: 900px; margin: 0 auto; }
 @media (max-width: 900px) { .landing-grid, .product-layout, .card-grid.two, .card-grid.four { grid-template-columns: 1fr; } .timeline li { grid-template-columns: 1fr; } }
+
+.home-hero--cms {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(7rem, 13vw, 12rem) 0 clamp(4rem, 8vw, 7rem);
+  background: var(--home-hero-image, transparent) center/cover no-repeat;
+}
+
+.home-hero--cms.home-hero--has-media {
+  min-height: clamp(520px, 72vh, 780px);
+  display: grid;
+  align-items: center;
+}
+
+.home-hero--cms .home-hero__image,
+.home-hero--cms .home-hero__video {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  transform: none;
+  object-fit: cover;
+  opacity: 1;
+  mix-blend-mode: normal;
+  mask-image: none;
+  pointer-events: none;
+}
+
+.home-hero--cms .home-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(180deg, rgba(251, 253, 255, .76), rgba(238, 247, 255, .66) 48%, rgba(251, 253, 255, .82)),
+    radial-gradient(ellipse at center, rgba(255, 255, 255, .32), rgba(12, 24, 44, .18));
+  pointer-events: none;
+}
+
+.home-hero--cms .home-hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.homepage-horizon {
+  position: relative;
+  isolation: isolate;
+  min-height: 260px;
+  margin-top: clamp(3rem, 7vw, 6rem);
+  padding: clamp(5rem, 10vw, 8rem) 1rem clamp(2rem, 5vw, 4rem);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  text-align: center;
+  background: var(--footer-horizon-image, transparent) center bottom/cover no-repeat;
+}
+
+.homepage-horizon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(251, 253, 255, 0), rgba(251, 253, 255, .76) 72%, rgba(251, 253, 255, .96)),
+    radial-gradient(ellipse at center bottom, rgba(255, 255, 255, .78), rgba(226, 241, 255, .28) 52%, transparent 72%);
+}
+
+.homepage-horizon__inner p {
+  margin: 0 auto;
+  max-width: 680px;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+  color: #243550;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero--cms .home-hero__video {
+    display: block;
+  }
+}
