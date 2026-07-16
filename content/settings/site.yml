@@ -25,3 +25,16 @@ footer:
   eyebrow: THALCOR / AI research lab
   text: Building technologies for prediction, simulation, and complex problem
     solving.
+contactPage:
+  title: Contact
+  description: Contact Thalcor about AI research, simulations, and prediction systems.
+  eyebrow: Contact
+  heading: Start a conversation.
+  intro: Reach out about research collaborations, prototypes, or deployment opportunities.
+  panelTitle: Contact Thalcor
+  panelText: Send a note and we will respond when there is a strong fit.
+contactCta:
+  eyebrow: Contact
+  heading: Have a high-consequence problem to model?
+  text: Share the scenario, constraints, and desired outcome.
+  buttonLabel: Contact Thalcor

@@ -1,11 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getHomepageContent } from '../lib/content';
+
+const homepage = await getHomepageContent();
+const { hero, footer } = homepage;
+const hasHeroMedia = Boolean(hero.backgroundVideo || hero.backgroundImage);
+const heroStyle = hero.backgroundImage ? `--home-hero-image: url('${hero.backgroundImage}')` : '';
+const horizonStyle = footer.horizonImage ? `--footer-horizon-image: url('${footer.horizonImage}')` : '';
 ---
-<BaseLayout title="Thalcor" description="Building technologies that help humanity predict, understand, and solve the world's most complex problems." canonical="/">
-  <section class="home-hero container">
-    <p class="kicker">Independent AI research and development lab</p>
-    <h1>Thalcor</h1>
-    <p class="home-hero__body">Building technologies that help humanity predict, understand, and solve the world's most complex problems.</p>
+<BaseLayout title={homepage.seoTitle} description={homepage.seoDescription} image={hero.backgroundImage} canonical="/">
+  <section class:list={["home-hero", "home-hero--cms", { "home-hero--has-media": hasHeroMedia }]} style={heroStyle}>
+    {hero.backgroundImage && <img class="home-hero__image" src={hero.backgroundImage} alt="" loading="eager" decoding="async" aria-hidden="true" />}
+    {hero.backgroundVideo && (
+      <video
+        class="home-hero__video"
+        src={hero.backgroundVideo}
+        poster={hero.backgroundImage}
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      ></video>
+    )}
+    {hasHeroMedia && <div class="home-hero__overlay" aria-hidden="true"></div>}
+    <div class="container home-hero__content">
+      <p class="kicker">{hero.subtitle}</p>
+      <h1>{hero.title}</h1>
+      <p class="home-hero__body">{hero.body}</p>
+    </div>
   </section>
 
   <section class="container landing-grid" aria-label="Thalcor overview">
@@ -77,6 +101,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <a href="/updates/">Research log</a>
       <a href="https://github.com/thalcor">GitHub</a>
       <a href="/contact/">Contact</a>
+    </div>
+  </section>
+
+  <section class:list={["homepage-horizon", { "homepage-horizon--has-image": footer.horizonImage }]} style={horizonStyle} aria-label="Homepage horizon">
+    <div class="container homepage-horizon__inner">
+      <p>{footer.text}</p>
     </div>
   </section>
 </BaseLayout>
