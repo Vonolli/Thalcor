@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="AI Simulation Platform" description="Thalcor's AI simulation platform creates persistent environments where agents can learn, interact, fail, adapt, and generate synthetic data." canonical="/ai-simulation-platform/">
+  <section class="container product-hero">
+    <p class="kicker">Product page</p>
+    <h1>AI Simulation Platform</h1>
+  </section>
+
+  <section class="container product-layout">
+    <article class="surface feature-card">
+      <p class="kicker">The problem</p>
+      <p>Modern AI rarely gains experience in persistent environments where decisions have long-term consequences. This limits its ability to reason, adapt, and safely operate in complex real-world situations.</p>
+    </article>
+    <article class="surface feature-card">
+      <p class="kicker">Why current approaches are limited</p>
+      <p>Many simulation projects focus on generating realistic worlds. Thalcor focuses on creating environments where AI agents can learn, interact, fail, adapt, and generate valuable synthetic data for research and training.</p>
+    </article>
+    <article class="surface feature-card wide">
+      <p class="kicker">Vision</p>
+      <p>We believe advanced AI should be extensively tested inside simulated worlds before deployment into real-world systems. These simulations can improve safety, reveal failure modes, generate high-quality synthetic datasets, and enable better prediction of future outcomes.</p>
+    </article>
+  </section>
+
+  <section class="container page-section">
+    <div class="section-headline">
+      <p class="kicker">Current progress</p>
+      <h2>Current capabilities include:</h2>
+    </div>
+    <div class="card-grid four capability-grid">
+      {['Persistent simulation worlds','Unique world seeds','Scenario generation','Agent beliefs','World truths','Agent rumors','Resource tracking','Agent memory visualization','Simulation maps','Event timelines','Tick summaries','Data quality grading','Simulation management tools','Debugging interface'].map((item) => <div class="surface mini-card">{item}</div>)}
+    </div>
+  </section>
+
+  <section class="container page-section">
+    <article class="surface feature-card milestone-card">
+      <p class="kicker">Next milestone</p>
+      <h2>Emergent multi-agent behavior.</h2>
+      <p>Demonstrate emergent multi-agent behavior and generate a high-quality synthetic dataset that can be used for AI training and evaluation.</p>
+    </article>
+  </section>
+
+  <section class="container page-section">
+    <div class="section-headline">
+      <p class="kicker">Future applications</p>
+      <h2>Where simulated experience can become operational leverage.</h2>
+    </div>
+    <div class="card-grid four capability-grid">
+      {['Robotics','AI Safety','Synthetic Data','Strategic Planning','Disaster Prediction','Scientific Research','Defense & Security','Autonomous Systems'].map((item) => <div class="surface mini-card">{item}</div>)}
+    </div>
+  </section>
+</BaseLayout>
