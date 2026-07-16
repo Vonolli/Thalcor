@@ -1,5 +1,6 @@
 seoTitle: THALCOR — Moonshot Studio & R&D Lab
-seoDescription: THALCOR turns concepts into executable missions that can be funded, tested, and deployed to help build the future we dream of.
+seoDescription: THALCOR turns concepts into executable missions that can be
+  funded, tested, and deployed to help build the future we dream of.
 hero:
   title: THALCOR
   subtitle: MOONSHOT STUDIO & R&D LAB
@@ -8,7 +9,7 @@ hero:
     that can be funded, tested, and deployed to help
     build the future we dream of.
   backgroundImage: /media/images/hero-atmosphere.jpg
-  backgroundVideo: ""
+  backgroundVideo: /media/videos/cat-pop.mp4
 footer:
   horizonImage: /media/images/footer-horizon.jpg
   text: Building executable missions for a brighter future.
@@ -17,16 +18,19 @@ featuredCategories:
   - creative-worldbuilding
   - systems-platforms
   - frontier-research
-
 process:
   eyebrow: Operating model
   title: From impossible to investable.
   steps:
     - title: Imagine
-      text: Hunt for strange intersections, hidden demand, future behaviors, and ideas with enough myth and utility to deserve a mission.
+      text: Hunt for strange intersections, hidden demand, future behaviors, and ideas
+        with enough myth and utility to deserve a mission.
     - title: Prototype
-      text: Turn abstract concepts into artifacts, interfaces, renders, landing pages, prompts, videos, tools, and field tests.
+      text: Turn abstract concepts into artifacts, interfaces, renders, landing pages,
+        prompts, videos, tools, and field tests.
     - title: Validate
-      text: Read the signal through behavior, taste, feasibility, cost, technical leverage, and the quality of people it attracts.
+      text: Read the signal through behavior, taste, feasibility, cost, technical
+        leverage, and the quality of people it attracts.
     - title: Compound
-      text: Convert proof into reusable systems, brands, IP, datasets, operating loops, partnerships, and venture paths.
+      text: Convert proof into reusable systems, brands, IP, datasets, operating
+        loops, partnerships, and venture paths.
