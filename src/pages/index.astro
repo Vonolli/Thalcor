@@ -1,23 +1,82 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import AtmosphericBackground from '../components/AtmosphericBackground.astro';
-import Hero from '../components/Hero.astro';
-import MissionCategoryPanel from '../components/MissionCategoryPanel.astro';
-import FooterHorizon from '../components/FooterHorizon.astro';
-import { getHomepageContent, getMissionsContent } from '../lib/content';
-
-const homepage = await getHomepageContent();
-const missions = await getMissionsContent();
-const categoryOrder = new Map(homepage.featuredCategories.map((id, index) => [id, index]));
-const categories = missions.categories
-  .filter((category) => category.visible && (categoryOrder.size === 0 || categoryOrder.has(category.id)))
-  .sort((a, b) => (categoryOrder.get(a.id) ?? a.order) - (categoryOrder.get(b.id) ?? b.order));
 ---
-<BaseLayout title={homepage.seoTitle} description={homepage.seoDescription} image={homepage.hero.backgroundImage} hideFooter>
-  <AtmosphericBackground heroImage={homepage.hero.backgroundImage} horizonImage={homepage.footer.horizonImage} />
-  <Hero hero={homepage.hero} />
-  <div class="container mission-stack" aria-label="Mission categories">
-    {categories.map((category) => <MissionCategoryPanel category={category} />)}
-  </div>
-  <FooterHorizon text={homepage.footer.text} />
+<BaseLayout title="Thalcor" description="Building technologies that help humanity predict, understand, and solve the world's most complex problems." canonical="/">
+  <section class="home-hero container">
+    <p class="kicker">Independent AI research and development lab</p>
+    <h1>Thalcor</h1>
+    <p class="home-hero__body">Building technologies that help humanity predict, understand, and solve the world's most complex problems.</p>
+  </section>
+
+  <section class="container landing-grid" aria-label="Thalcor overview">
+    <article class="surface feature-card mission-card">
+      <p class="kicker">Mission</p>
+      <h2>Understand and shape the future.</h2>
+      <p>Thalcor is an independent AI research and development lab focused on predictive systems, simulation environments, and intelligent software. Our goal is to build technologies that improve humanity's ability to understand and shape the future.</p>
+    </article>
+    <article class="surface feature-card">
+      <p class="kicker">What we build</p>
+      <ul class="clean-list">
+        <li>AI Simulation Environments</li>
+        <li>Predictive Systems</li>
+        <li>AI Models &amp; Architecture</li>
+        <li>Research Prototypes</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="container page-section">
+    <div class="section-headline">
+      <p class="kicker">Current flagships</p>
+      <h2>Focused platforms for complex-world prediction.</h2>
+    </div>
+    <div class="card-grid two">
+      <a class="surface feature-card link-card" href="/ai-simulation-platform/">
+        <span>01</span>
+        <h3>AI World Simulation Platform</h3>
+        <p>Persistent simulated worlds for agent training, safety testing, synthetic data generation, and long-horizon reasoning.</p>
+      </a>
+      <a class="surface feature-card link-card" href="/wildfire-prediction/">
+        <span>02</span>
+        <h3>Wildfire Prediction System</h3>
+        <p>Predictive systems for understanding wildfire risk, scenario evolution, and decision support before conditions become catastrophic.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="container page-section">
+    <div class="section-headline">
+      <p class="kicker">Active research</p>
+      <h2>A simple grid of current projects.</h2>
+      <p>Each card links to its own page or research log as the work becomes public.</p>
+    </div>
+    <div class="card-grid four">
+      <a class="surface mini-card" href="/ai-simulation-platform/">Simulation worlds</a>
+      <a class="surface mini-card" href="/wildfire-prediction/">Disaster prediction</a>
+      <a class="surface mini-card" href="/updates/">Synthetic data grading</a>
+      <a class="surface mini-card" href="/updates/">Agent memory systems</a>
+    </div>
+  </section>
+
+  <section class="container page-section">
+    <div class="section-headline">
+      <p class="kicker">Progress</p>
+      <h2>Prototypes, demos, videos, research updates, and milestones.</h2>
+    </div>
+    <ol class="timeline surface">
+      <li><strong>Prototype foundation</strong><span>Persistent worlds, seeds, maps, timelines, and tick summaries.</span></li>
+      <li><strong>Research instrumentation</strong><span>Agent beliefs, world truths, rumors, memories, and data-quality grading.</span></li>
+      <li><strong>Next milestone</strong><span>Emergent multi-agent behavior and high-quality synthetic datasets for evaluation.</span></li>
+    </ol>
+  </section>
+
+  <section class="container page-section follow-card surface">
+    <p class="kicker">Follow the journey</p>
+    <h2>Newsletter / X / GitHub / Contact.</h2>
+    <div class="follow-links">
+      <a href="/updates/">Research log</a>
+      <a href="https://github.com/thalcor">GitHub</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </section>
 </BaseLayout>
