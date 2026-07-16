@@ -1,27 +1,15 @@
 name: THALCOR
 title: Thalcor — AI Research & Development Lab
-description: Thalcor builds technologies that help humanity predict, understand, and solve the world's most complex problems.
+description: Thalcor builds technologies that help humanity predict, understand,
+  and solve the world's most complex problems.
 url: https://thalcor.ca
 ogImage: /assets/images/og-image.svg
 email: contact@thalcor.ca
 tagline: Independent AI research and development lab.
-brandLogo: /media/logos/thalcor-wordmark.svg
+brandLogo: /media/logos/geodesic-1.png
 contactButton:
   label: CONTACT
   url: /contact/
-contactPage:
-  title: Contact
-  description: Contact THALCOR for collaborations, investment conversations, contractor partnerships, and serious project inquiries.
-  eyebrow: Contact
-  heading: Follow the journey or start a conversation.
-  intro: For research collaborations, technical conversations, updates, or serious project inquiries.
-  panelTitle: Public channel
-  panelText: Include the project or lab area that interests you, what you are building or researching, and the best way to continue the conversation.
-contactCta:
-  eyebrow: Contact
-  heading: Bring a serious signal.
-  text: For collaborations, investment conversations, contractor partnerships, or serious project inquiries.
-  buttonLabel: Open contact channel
 navigation:
   - label: HOME
     url: /
@@ -35,4 +23,5 @@ navigation:
     url: /updates/
 footer:
   eyebrow: THALCOR / AI research lab
-  text: Building technologies for prediction, simulation, and complex problem solving.
+  text: Building technologies for prediction, simulation, and complex problem
+    solving.
